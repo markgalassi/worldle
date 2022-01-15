@@ -3,7 +3,7 @@ import { countries } from './countries';
 import haversine from 'haversine-distance'
 
 function App() {
-  const [country, setCountry] = useState(countries[Math.floor(Math.random() * countries.length)]);
+  const [country] = useState(countries[Math.floor(Math.random() * countries.length)]);
   const [guesses, setGuesses] = useState<{name: string, distance: number}[]>([]);
   const [currentGuess, setCurrentGuess] = useState('');
 
@@ -17,7 +17,7 @@ function App() {
       ])
       setCurrentGuess('')
     }
-  }, [currentGuess])
+  }, [country, currentGuess])
 
   return (
     <div>
