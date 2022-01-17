@@ -1,9 +1,12 @@
 import { useCallback, useState } from 'react';
 import { countries } from './countries';
-import haversine from 'haversine-distance'
+import haversine from 'haversine-distance';
+import * as seedrandom from "seedrandom";
 
 function App() {
-  const [country] = useState(countries[Math.floor(Math.random() * countries.length)]);
+  const now = new Date()
+  const nowString = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
+  const [country] = useState(countries[Math.floor(seedrandom.alea(nowString)() * countries.length)]);
   const [guesses, setGuesses] = useState<{name: string, distance: number}[]>([]);
   const [currentGuess, setCurrentGuess] = useState('');
 
