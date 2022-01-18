@@ -39,14 +39,13 @@ function App() {
             Wor<span className="text-green-600">l</span>dle
           </h1>
         </header>
-        <div className="flex flex-col">
+        <div className="flex flex-col mx-2">
           <img
             className="max-h-52 my-1"
             alt="country to guess"
             src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
           />
           <div>
-            <h2 className="text-xl">Guesses:</h2>
             <ul>
               {guesses.map((guess, index) => (
                 <li key={index}>
@@ -59,6 +58,7 @@ function App() {
             <div className="flex my-1">
               <input
                 className="border-2 flex-auto"
+                placeholder="Country..."
                 value={currentGuess}
                 onChange={(e) => setCurrentGuess(e.target.value)}
               />
