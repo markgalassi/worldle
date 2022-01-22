@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { countries } from "./countries";
+import { countries, countriesWithImage } from "./countries";
 import * as geolib from "geolib";
 import * as seedrandom from "seedrandom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -69,7 +69,7 @@ function App() {
   const dayString = useMemo(getDayString, []);
   const country = useMemo(
     () =>
-      countries[Math.floor(seedrandom.alea(dayString)() * countries.length)],
+      countriesWithImage[Math.floor(seedrandom.alea(dayString)() * countriesWithImage.length)],
     [dayString]
   );
 
