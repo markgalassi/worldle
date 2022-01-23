@@ -206,9 +206,9 @@ function App() {
                       onSuggestionsFetchRequested={({ value }) => setSuggestions(countries.map(c => c.name).filter(c => c.toLowerCase().includes(value.toLowerCase())))}
                       onSuggestionsClearRequested={() => setSuggestions([])}
                       getSuggestionValue={(suggestion) => suggestion}
-                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                      renderSuggestion={(suggestion) => <div className="border-2">{suggestion}</div>}
                       containerProps={{
-                        className: "border-2 flex-auto"
+                        className: "border-2 flex-auto relative"
                       }}
                       inputProps={{
                         className: 'w-full',
@@ -216,6 +216,11 @@ function App() {
                         value: currentGuess,
                         onChange: (_e, {newValue}) => setCurrentGuess(newValue),
                       }}
+                      renderSuggestionsContainer={({containerProps, children}) => (
+                        <div {...containerProps} className={`${containerProps.className} absolute bottom-full w-full bg-white mb-1 divide-x-2`}>
+                          {children}
+                        </div>
+                      )}
                     />
                     <button className="border-2 uppercase my-0.5 hover:bg-gray-50 active:bg-gray-100" type="submit">
                       🌍 Guess
