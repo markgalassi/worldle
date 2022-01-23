@@ -1,3 +1,7 @@
+// Source:
+// Countries with long/lat => https://developers.google.com/public-data/docs/canonical/countries_csv
+// Countries images => https://github.com/djaiss/mapsicon
+
 const countryCodesWithImage = [
   "ad",
   "ao",

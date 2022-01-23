@@ -200,7 +200,7 @@ function App() {
                   <div className="flex flex-col">
                     <input
                       className="border-2 flex-auto"
-                      placeholder="Country..."
+                      placeholder="Country, territory..."
                       value={currentGuess}
                       onChange={(e) => setCurrentGuess(e.target.value)}
                     />
