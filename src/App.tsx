@@ -6,6 +6,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { DateTime, Interval } from "luxon";
 import { toast, ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Autosuggest from "react-autosuggest";
 
 type Direction =
   | "S"
@@ -155,6 +156,8 @@ function App() {
     }
   }, [country.name, guesses]);
 
+  const [suggestions, setSuggestions] = useState<string[]>([])
+
   return (
     <>
       <ToastContainer
@@ -198,11 +201,21 @@ function App() {
               ) : (
                 <form onSubmit={handleSubmit}>
                   <div className="flex flex-col">
-                    <input
-                      className="border-2 flex-auto"
-                      placeholder="Country, territory..."
-                      value={currentGuess}
-                      onChange={(e) => setCurrentGuess(e.target.value)}
+                    <Autosuggest
+                      suggestions={suggestions}
+                      onSuggestionsFetchRequested={({ value }) => setSuggestions(countries.map(c => c.name).filter(c => c.toLowerCase().includes(value.toLowerCase())))}
+                      onSuggestionsClearRequested={() => setSuggestions([])}
+                      getSuggestionValue={(suggestion) => suggestion}
+                      renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                      containerProps={{
+                        className: "border-2 flex-auto"
+                      }}
+                      inputProps={{
+                        className: 'w-full',
+                        placeholder: "Country, territory...",
+                        value: currentGuess,
+                        onChange: (_e, {newValue}) => setCurrentGuess(newValue),
+                      }}
                     />
                     <button className="border-2 uppercase my-0.5 hover:bg-gray-50 active:bg-gray-100" type="submit">
                       🌍 Guess
