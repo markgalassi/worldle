@@ -1,9 +1,7 @@
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
-import Modal from "react-modal";
 import { useState } from "react";
-import { Guesses } from "./components/Guesses";
 import { Infos } from "./components/Infos";
 
 function App() {
