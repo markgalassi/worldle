@@ -14,7 +14,7 @@ export function Infos({ isOpen, close }: InfosProps) {
       className="flex justify-center h-full"
     >
       <div className="w-full max-w-lg bg-white text-sm overflow-auto px-2">
-        <header className="border-b-2 border-gray-200 mb-4 flex">
+        <header className="border-b-2 border-gray-200 mb-3 flex">
           <h2 className="text-2xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
             How to play
           </h2>
@@ -22,7 +22,7 @@ export function Infos({ isOpen, close }: InfosProps) {
             ✖️
           </button>
         </header>
-        <div className="space-y-4 text-justify border-b-2 border-gray-200 pb-4 mb-4">
+        <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <div>
             Guess the{" "}
             <span className="font-bold">
@@ -36,7 +36,7 @@ export function Infos({ isOpen, close }: InfosProps) {
             proximity from your guess and the target country.
           </div>
         </div>
-        <div className="space-y-4 text-justify border-b-2 border-gray-200 pb-4 mb-4">
+        <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <div className="font-bold">Examples</div>
           <div>
             <Guesses
@@ -90,11 +90,11 @@ export function Infos({ isOpen, close }: InfosProps) {
             </div>
           </div>
         </div>
-        <div className="space-y-4 text-justify border-b-2 border-gray-200 pb-4 mb-4 font-bold">
+        <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
           A new WOR<span className="text-green-600">L</span>DLE will be
           available every day!
         </div>
-        <div className="space-y-4 text-justify border-b-2 border-gray-200 pb-4 mb-4">
+        <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
           <span className="font-bold">
             WOR<span className="text-green-600">L</span>DLE
           </span>{" "}
@@ -118,7 +118,7 @@ export function Infos({ isOpen, close }: InfosProps) {
           </a>
           .
         </div>
-        <div className="space-y-4 text-justify pb-4">
+        <div className="space-y-3 text-justify pb-3">
           <div>
             Made by{" "}
             <a
