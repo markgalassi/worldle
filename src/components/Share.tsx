@@ -14,7 +14,7 @@ interface ShareProps {
 }
 
 export function Share({guesses, dayString}: ShareProps) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const shareText = useMemo(() => {
     const guessCount = guesses.at(-1)?.distance === 0 ? guesses.length : "X";
