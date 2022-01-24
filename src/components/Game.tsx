@@ -5,13 +5,15 @@ import seedrandom from "seedrandom";
 import { countries, countriesWithImage } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
-import { GuessRow } from "./GuessRow";
 import * as geolib from "geolib";
 import { Share } from "./Share";
+import { Guesses } from "./Guesses";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
 }
+
+const MAX_TRY_COUNT = 6;
 
 export function Game() {
   const dayString = useMemo(getDayString, []);
@@ -26,7 +28,7 @@ export function Game() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayString);
 
-  const gameEnded = guesses.length === 6 || guesses.at(-1)?.distance === 0;
+  const gameEnded = guesses.length === MAX_TRY_COUNT || guesses.at(-1)?.distance === 0;
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
@@ -57,7 +59,7 @@ export function Game() {
   );
 
   useEffect(() => {
-    if (guesses.length === 6 && guesses.at(-1)!.distance > 0) {
+    if (guesses.length === MAX_TRY_COUNT && guesses.at(-1)!.distance > 0) {
       toast.info(country.name.toUpperCase(), { autoClose: false });
     }
   }, [country.name, guesses]);
@@ -69,13 +71,10 @@ export function Game() {
         alt="country to guess"
         src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
       />
-      <div>
-        <div className="grid grid-cols-7 gap-1 text-center">
-          {Array.from(Array(6).keys()).map((index) => (
-            <GuessRow key={index} guess={guesses[index]} />
-          ))}
-        </div>
-      </div>
+      <Guesses
+        rowCount={MAX_TRY_COUNT}
+        guesses={guesses}
+      />
       <div className="my-2">
         {gameEnded ? (
           <Share guesses={guesses} dayString={dayString} />
