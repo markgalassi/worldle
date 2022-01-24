@@ -701,7 +701,7 @@ export const countries = [
     code: "PS",
     latitude: 31.952162,
     longitude: 35.233154,
-    name: "Palestinian Territories",
+    name: "Palestine",
   },
   { code: "PT", latitude: 39.399872, longitude: -8.224454, name: "Portugal" },
   { code: "PW", latitude: 7.51498, longitude: 134.58252, name: "Palau" },
