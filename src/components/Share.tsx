@@ -1,6 +1,7 @@
 import { DateTime, Interval } from "luxon";
 import { useMemo } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
+import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { computeProximityPercent } from "../domain/geography";
 import { Guess } from "../domain/guess";
@@ -13,6 +14,7 @@ interface ShareProps {
 }
 
 export function Share({guesses, dayString}: ShareProps) {
+  const { t, i18n } = useTranslation();
 
   const shareText = useMemo(() => {
     const guessCount = guesses.at(-1)?.distance === 0 ? guesses.length : "X";
@@ -41,10 +43,10 @@ export function Share({guesses, dayString}: ShareProps) {
   return (
     <CopyToClipboard
       text={shareText}
-      onCopy={() => toast("Copied results to clipboard")}
+      onCopy={() => toast(t('copy'))}
     >
       <button className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full">
-        Share
+        {t('share')}
       </button>
     </CopyToClipboard>
   );

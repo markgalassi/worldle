@@ -2,12 +2,13 @@ import { DateTime } from "luxon";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import seedrandom from "seedrandom";
-import { countries, countriesWithImage } from "../domain/countries";
+import { countries, countriesWithImage, getCountryName } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
 import * as geolib from "geolib";
 import { Share } from "./Share";
 import { Guesses } from "./Guesses";
+import { useTranslation } from "react-i18next";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -16,6 +17,7 @@ function getDayString() {
 const MAX_TRY_COUNT = 6;
 
 export function Game() {
+  const { t, i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
   const country = useMemo(
     () =>
@@ -34,11 +36,11 @@ export function Game() {
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const guessedCountry = countries.find(
-        (country) => country.name.toLowerCase() === currentGuess.toLowerCase()
+        (country) => getCountryName(i18n.resolvedLanguage,country).toLowerCase() === currentGuess.toLowerCase()
       );
 
       if (guessedCountry == null) {
-        toast.error("Unknown country!");
+        toast.error(t('unknownCountry'));
         return;
       }
 
@@ -52,17 +54,17 @@ export function Game() {
       setCurrentGuess("");
 
       if (newGuess.distance === 0) {
-        toast.success("Well done!");
+        toast.success(t('welldone'));
       }
     },
-    [addGuess, country, currentGuess]
+    [addGuess, country, currentGuess, i18n.resolvedLanguage, t]
   );
 
   useEffect(() => {
     if (guesses.length === MAX_TRY_COUNT && guesses.at(-1)!.distance > 0) {
-      toast.info(country.name.toUpperCase(), { autoClose: false });
+      toast.info(getCountryName(i18n.resolvedLanguage,country).toUpperCase(), { autoClose: false });
     }
-  }, [country.name, guesses]);
+  }, [country, guesses, i18n.resolvedLanguage]);
 
   return (
     <div className="flex flex-col mx-2">
@@ -89,7 +91,7 @@ export function Game() {
                 className="border-2 uppercase my-0.5 hover:bg-gray-50 active:bg-gray-100"
                 type="submit"
               >
-                🌍 Guess
+                🌍 {t('guess')}
               </button>
             </div>
           </form>
