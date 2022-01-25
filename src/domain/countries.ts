@@ -1143,6 +1143,6 @@ export function sanitizeCountryName(countryName: string): string {
   return countryName
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[-\ ']/g, '')
+    .replace(/[- ']/g, '')
     .toLowerCase();
 }
