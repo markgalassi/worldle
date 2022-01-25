@@ -30,7 +30,7 @@ export function Game() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayString);
 
-  const gameEnded = guesses.length === MAX_TRY_COUNT || guesses.at(-1)?.distance === 0;
+  const gameEnded = guesses.length === MAX_TRY_COUNT || guesses[guesses.length - 1]?.distance === 0;
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
@@ -61,7 +61,7 @@ export function Game() {
   );
 
   useEffect(() => {
-    if (guesses.length === MAX_TRY_COUNT && guesses.at(-1)!.distance > 0) {
+    if (guesses.length === MAX_TRY_COUNT && guesses[guesses.length - 1]!.distance > 0) {
       toast.info(getCountryName(i18n.resolvedLanguage,country).toUpperCase(), { autoClose: false });
     }
   }, [country, guesses, i18n.resolvedLanguage]);

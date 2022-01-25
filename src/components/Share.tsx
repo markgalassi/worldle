@@ -17,7 +17,7 @@ export function Share({guesses, dayString}: ShareProps) {
   const { t } = useTranslation();
 
   const shareText = useMemo(() => {
-    const guessCount = guesses.at(-1)?.distance === 0 ? guesses.length : "X";
+    const guessCount = guesses[guesses.length - 1]?.distance === 0 ? guesses.length : "X";
     const dayCount = Math.floor(
       Interval.fromDateTimes(START_DATE, DateTime.fromISO(dayString)).length(
         "day"
