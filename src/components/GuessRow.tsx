@@ -25,7 +25,7 @@ export function GuessRow({ guess }: { guess?: Guess }) {
 
   return (
     <>
-      <div className={`border-2 h-8 col-span-3 ${bgColor}`}>
+      <div className={`text-ellipsis overflow-hidden whitespace-nowrap border-2 h-8 col-span-3 ${bgColor}`}>
         {guess?.name.toUpperCase()}
       </div>
       <div className={`border-2 h-8 col-span-2 ${bgColor}`}>
