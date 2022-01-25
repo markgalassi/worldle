@@ -2,7 +2,7 @@ import { t } from "i18next";
 import { useState } from "react";
 import Autosuggest from "react-autosuggest";
 import { useTranslation } from "react-i18next";
-import { countries, getCountryName } from "../domain/countries";
+import { countries, getCountryName, sanitizeCountryName } from "../domain/countries";
 
 interface CountryInputProps {
   currentGuess: string;
@@ -24,7 +24,7 @@ export function CountryInput({
         setSuggestions(
           countries
             .map((c) => getCountryName(i18n.resolvedLanguage, c).toUpperCase())
-            .filter((c) => c.toLowerCase().includes(value.toLowerCase()))
+            .filter((countryName) => sanitizeCountryName(countryName).includes(sanitizeCountryName(value)))
         )
       }
       onSuggestionsClearRequested={() => setSuggestions([])}

@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "react-toastify";
 import seedrandom from "seedrandom";
-import { countries, countriesWithImage, getCountryName } from "../domain/countries";
+import { countries, countriesWithImage, getCountryName, sanitizeCountryName } from "../domain/countries";
 import { useGuesses } from "../hooks/useGuesses";
 import { CountryInput } from "./CountryInput";
 import * as geolib from "geolib";
@@ -36,7 +36,7 @@ export function Game() {
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const guessedCountry = countries.find(
-        (country) => getCountryName(i18n.resolvedLanguage,country).toLowerCase() === currentGuess.toLowerCase()
+        (country) => sanitizeCountryName(getCountryName(i18n.resolvedLanguage,country)) === sanitizeCountryName(currentGuess)
       );
 
       if (guessedCountry == null) {
