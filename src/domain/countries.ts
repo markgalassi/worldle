@@ -1122,7 +1122,7 @@ const frenchCountryNames: Record<string, string> = {
   VG: "Vierges britanniques",
   VI: "Vierges des États-Unis",
   WF: "Wallis-et-Futuna",
-  EH: "Sahara occidental*",
+  EH: "Sahara occidental",
   YE: "Yémen",
   ZM: "Zambie",
   ZW: "Zimbabwe",

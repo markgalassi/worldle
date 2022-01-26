@@ -44,7 +44,7 @@ export function CountryInput({
       renderSuggestionsContainer={({ containerProps, children }) => (
         <div
           {...containerProps}
-          className={`${containerProps.className} absolute bottom-full w-full bg-white mb-1 divide-x-2`}
+          className={`${containerProps.className} absolute bottom-full w-full bg-white mb-1 divide-x-2 max-h-52 overflow-auto`}
         >
           {children}
         </div>
