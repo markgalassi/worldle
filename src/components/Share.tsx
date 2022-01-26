@@ -44,6 +44,9 @@ export function Share({guesses, dayString}: ShareProps) {
     <CopyToClipboard
       text={shareText}
       onCopy={() => toast(t('copy'))}
+      options={{
+        format: 'text/plain'
+      }}
     >
       <button className="border-2 px-4 uppercase bg-green-600 hover:bg-green-500 active:bg-green-700 text-white w-full">
         {t('share')}
