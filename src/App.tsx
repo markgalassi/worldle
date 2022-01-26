@@ -3,9 +3,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
 import { useState } from "react";
 import { Infos } from "./components/Infos";
+import { useTranslation } from "react-i18next";
+import { InfosFr } from "./components/InfosFr";
 
 function App() {
   const [infoOpen, setInfoOpen] = useState(false);
+  const { i18n } = useTranslation();
 
   return (
     <>
@@ -17,10 +20,11 @@ function App() {
         autoClose={2000}
         bodyClassName="font-bold text-center"
       />
-      <Infos
-        isOpen={infoOpen}
-        close={() => setInfoOpen(false)}
-      />
+      {i18n.resolvedLanguage === "fr" ? (
+        <InfosFr isOpen={infoOpen} close={() => setInfoOpen(false)} />
+      ) : (
+        <Infos isOpen={infoOpen} close={() => setInfoOpen(false)} />
+      )}
       <div className="flex justify-center">
         <div className="w-full max-w-lg">
           <header className="border-b-2 border-gray-200 flex">
