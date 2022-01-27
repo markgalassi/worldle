@@ -92,7 +92,7 @@ export function Game({ settingsData }: GameProps) {
   }, [country, guesses, i18n.resolvedLanguage]);
 
   return (
-    <div className="flex flex-col mx-2">
+    <div className="flex-grow flex flex-col mx-2">
       {hideImageMode ? (
         <button
           className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100"

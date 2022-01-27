@@ -7,9 +7,10 @@ import { useTranslation } from "react-i18next";
 import { InfosFr } from "./components/panels/InfosFr";
 import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
+import { Worldle } from "./components/Worldle";
 
 function App() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -37,8 +38,8 @@ function App() {
         settingsData={settingsData}
         updateSettings={updateSettings}
       />
-      <div className="flex justify-center">
-        <div className="w-full max-w-lg">
+      <div className="flex justify-center min-h-screen">
+        <div className="w-full max-w-lg flex flex-col">
           <header className="border-b-2 border-gray-200 flex">
             <button
               className="mx-3 text-xl"
@@ -59,6 +60,17 @@ function App() {
             </button>
           </header>
           <Game settingsData={settingsData} />
+          <footer className="flex justify-center text-sm mb-1">
+            ❤️ <Worldle />? -
+            <a
+              className="underline pl-1"
+              href="https://www.ko-fi.com/teuteuf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("buyMeACoffee")}
+            </a>
+          </footer>
         </div>
       </div>
     </>

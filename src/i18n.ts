@@ -17,6 +17,7 @@ const resources = {
         noImageMode:
           "Hide country image for more challenge. (Starting the next day!)",
       },
+      buyMeACoffee: "Buy me a ☕!",
     },
   },
   fr: {
@@ -33,6 +34,7 @@ const resources = {
         noImageMode:
           "Cacher l'image du pays pour plus de challenge. (A partir du lendemain !)",
       },
+      buyMeACoffee: "Offrez moi un ☕ !",
     },
   },
 };
