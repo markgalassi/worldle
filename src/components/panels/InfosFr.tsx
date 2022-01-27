@@ -1,6 +1,7 @@
 import { Guesses } from "../Guesses";
 import { Panel } from "./Panel";
 import React from "react";
+import { Worldle } from "../Worldle";
 
 interface InfosProps {
   isOpen: boolean;
@@ -13,11 +14,7 @@ export function InfosFr({ isOpen, close }: InfosProps) {
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
           {" "}
-          Devine le{" "}
-          <span className="font-bold">
-            WOR<span className="text-green-600">L</span>DLE
-          </span>{" "}
-          en 6 essais.
+          Devine le <Worldle /> en 6 essais.
         </div>
         <div>Chaque essai doit être un pays, un territoire, etc... valide.</div>
         <div>
@@ -81,14 +78,10 @@ export function InfosFr({ isOpen, close }: InfosProps) {
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        Un nouveau WOR<span className="text-green-600">L</span>DLE sera
-        disponible chaque jour !
+        Un nouveau <Worldle /> sera disponible chaque jour !
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <span className="font-bold">
-          WOR<span className="text-green-600">L</span>DLE
-        </span>{" "}
-        a été <span className="font-bold">très</span> inpsiré par{" "}
+        <Worldle /> a été <span className="font-bold">très</span> inpsiré par{" "}
         <a
           className="underline"
           href="https://www.powerlanguage.co.uk/wordle/"
@@ -124,7 +117,7 @@ export function InfosFr({ isOpen, close }: InfosProps) {
           Vous voulez me soutenir ?{" "}
           <a
             className="underline"
-            href="https://www.buymeacoffee.com/teuteuf"
+            href="https://www.ko-fi.com/teuteuf"
             target="_blank"
             rel="noopener noreferrer"
           >

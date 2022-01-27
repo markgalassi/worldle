@@ -1,6 +1,7 @@
 import { Guesses } from "../Guesses";
 import { Panel } from "./Panel";
 import React from "react";
+import { Worldle } from "../Worldle";
 
 interface InfosProps {
   isOpen: boolean;
@@ -12,11 +13,7 @@ export function Infos({ isOpen, close }: InfosProps) {
     <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the{" "}
-          <span className="font-bold">
-            WOR<span className="text-green-600">L</span>DLE
-          </span>{" "}
-          in 6 guesses.
+          Guess the <Worldle /> in 6 guesses.
         </div>
         <div>Each guess must be a valid country, territory, ...</div>
         <div>
@@ -79,14 +76,11 @@ export function Infos({ isOpen, close }: InfosProps) {
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        A new WOR<span className="text-green-600">L</span>DLE will be available
-        every day!
+        A new <Worldle /> will be available every day!
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <span className="font-bold">
-          WOR<span className="text-green-600">L</span>DLE
-        </span>{" "}
-        has been <span className="font-bold">heavily</span> inspired by{" "}
+        <Worldle /> has been <span className="font-bold">heavily</span> inspired
+        by{" "}
         <a
           className="underline"
           href="https://www.powerlanguage.co.uk/wordle/"
@@ -122,7 +116,7 @@ export function Infos({ isOpen, close }: InfosProps) {
           Want to support?{" "}
           <a
             className="underline"
-            href="https://www.buymeacoffee.com/teuteuf"
+            href="https://www.ko-fi.com/teuteuf"
             target="_blank"
             rel="noopener noreferrer"
           >
