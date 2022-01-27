@@ -432,7 +432,7 @@ export const countries: Country[] = [
     code: "FK",
     latitude: -51.796253,
     longitude: -59.523613,
-    name: "Falkland Islands",
+    name: "Falkland Islands (Malvinas)",
   },
   { code: "FM", latitude: 7.425554, longitude: 150.550812, name: "Micronesia" },
   {
@@ -948,7 +948,7 @@ const frenchCountryNames: Record<string, string> = {
   EE: "Estonie",
   SZ: "Eswatini",
   ET: "Éthiopie",
-  FK: "Falkland",
+  FK: "Îles Falkland (Malvinas)",
   FO: "Féroé",
   FJ: "Fidji",
   FI: "Finlande",
@@ -1142,6 +1142,6 @@ export function sanitizeCountryName(countryName: string): string {
   return countryName
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[- ']/g, "")
+    .replace(/[- '()]/g, "")
     .toLowerCase();
 }
