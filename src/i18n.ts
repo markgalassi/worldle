@@ -15,7 +15,7 @@ const resources = {
       settings: {
         title: "Settings",
         noImageMode:
-          "Hide country image for more challenge. (Starting the next day!)",
+          "Hide country image for more of a challenge. (Starting the next day!)",
       },
       buyMeACoffee: "Buy me a ☕!",
     },
