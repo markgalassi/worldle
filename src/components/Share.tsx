@@ -3,7 +3,10 @@ import { useMemo } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import { computeProximityPercent } from "../domain/geography";
+import {
+  computeProximityPercent,
+  generateSquareCharacters,
+} from "../domain/geography";
 import { Guess } from "../domain/guess";
 import React from "react";
 
@@ -32,12 +35,7 @@ export function Share({ guesses, dayString, hideImageMode }: ShareProps) {
     const guessString = guesses
       .map((guess) => {
         const percent = computeProximityPercent(guess.distance);
-        const greenSquareCount = Math.floor(percent / 20);
-        const yellowSquareCount = percent - greenSquareCount * 20 >= 10 ? 1 : 0;
-        const green = "🟩".repeat(greenSquareCount);
-        const yellow = "🟨".repeat(yellowSquareCount);
-        const white = "⬜".repeat(5 - greenSquareCount - yellowSquareCount);
-        return `${green}${yellow}${white}`;
+        return generateSquareCharacters(percent).join("");
       })
       .join("\n");
 
