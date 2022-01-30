@@ -26,7 +26,7 @@ const DIRECTION_ARROWS: Record<Direction, string> = {
   NNW: "↖️",
 };
 
-const SQUARE_ANIMATION_LENGTH = 150;
+const SQUARE_ANIMATION_LENGTH = 250;
 type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
 
 export function GuessRow({ guess }: { guess?: Guess }) {
