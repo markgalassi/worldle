@@ -38,7 +38,7 @@ function App() {
         settingsData={settingsData}
         updateSettings={updateSettings}
       />
-      <div className="flex justify-center min-h-screen">
+      <div className="flex justify-center flex-auto">
         <div className="w-full max-w-lg flex flex-col">
           <header className="border-b-2 border-gray-200 flex">
             <button
