@@ -25,10 +25,9 @@ export function Settings({
           type="checkbox"
           id="setting-noImage"
           checked={settingsData.noImageMode}
-          onChange={() => {
-            console.log("wtf", settingsData.noImageMode);
-            return updateSettings({ noImageMode: !settingsData.noImageMode });
-          }}
+          onChange={() =>
+            updateSettings({ noImageMode: !settingsData.noImageMode })
+          }
         />
         <label className="flex-1 ml-2" htmlFor="setting-noImage">
           {t("settings.noImageMode")}

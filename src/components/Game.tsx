@@ -93,7 +93,7 @@ export function Game({ settingsData }: GameProps) {
 
   return (
     <div className="flex-grow flex flex-col mx-2">
-      {hideImageMode ? (
+      {hideImageMode && !gameEnded && (
         <button
           className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100"
           type="button"
@@ -101,13 +101,14 @@ export function Game({ settingsData }: GameProps) {
         >
           {t("showCountry")}
         </button>
-      ) : (
-        <img
-          className="max-h-52 my-1"
-          alt="country to guess"
-          src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
-        />
       )}
+      <img
+        className={`max-h-52 my-1 transition-all duration-700 ease-in ${
+          hideImageMode && !gameEnded ? "h-0" : "h-full"
+        }`}
+        alt="country to guess"
+        src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
+      />
       <Guesses rowCount={MAX_TRY_COUNT} guesses={guesses} />
       <div className="my-2">
         {gameEnded ? (
