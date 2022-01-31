@@ -12,10 +12,13 @@ const resources = {
       unknownCountry: "Unknown country!",
       copy: "Copied results to clipboard",
       showCountry: "🗺️ Show map!",
+      cancelRotation: "🌀 Cancel rotation",
       settings: {
         title: "Settings",
-        noImageMode:
-          "Hide country image for more of a challenge. (Starting the next day!)",
+        difficultyModifiers: "Difficulty modifiers",
+        startingNextDay: "Starting the next day!",
+        noImageMode: "Hide country image for more of a challenge.",
+        rotationMode: "Rotate randomly country image.",
       },
       buyMeACoffee: "Buy me a ☕!",
     },
@@ -29,10 +32,13 @@ const resources = {
       unknownCountry: "Pays inconnu !",
       copy: "Résultat copié !",
       showCountry: "🗺️ Afficher la carte !",
+      cancelRotation: "🌀 Annule la rotation",
       settings: {
         title: "Paramètres",
-        noImageMode:
-          "Cacher l'image du pays pour plus de challenge. (A partir du lendemain !)",
+        difficultyModifiers: "Modificateurs de difficulté",
+        startingNextDay: "A partir du lendemain !",
+        noImageMode: "Cacher l'image du pays pour plus de challenge.",
+        rotationMode: "Tourne l'image du pays de manière aléatoire.",
       },
       buyMeACoffee: "Offrez moi un ☕ !",
     },

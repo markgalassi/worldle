@@ -2,10 +2,12 @@ import { useCallback, useState } from "react";
 
 export interface SettingsData {
   noImageMode: boolean;
+  rotationMode: boolean;
 }
 
 const defaultSettingsData: SettingsData = {
   noImageMode: false,
+  rotationMode: false,
 };
 
 function loadSettings(): SettingsData {

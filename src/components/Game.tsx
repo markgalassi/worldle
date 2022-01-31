@@ -15,7 +15,7 @@ import { Share } from "./Share";
 import { Guesses } from "./Guesses";
 import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
-import { useHideImageMode } from "../hooks/useHideImageMode";
+import { useMode } from "../hooks/useMode";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -38,11 +38,28 @@ export function Game({ settingsData }: GameProps) {
     [dayString]
   );
 
+  const randomAngle = useMemo(
+    () => seedrandom.alea(dayString)() * 360,
+    [dayString]
+  );
+
+  const imageScale = useMemo(() => {
+    const normalizedAngle = 45 - (randomAngle % 90);
+    const radianAngle = (normalizedAngle * Math.PI) / 180;
+    return 1 / (Math.cos(radianAngle) * Math.sqrt(2));
+  }, [randomAngle]);
+
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayString);
-  const [hideImageMode, setHideImageMode] = useHideImageMode(
+  const [hideImageMode, setHideImageMode] = useMode(
+    "hideImageMode",
     dayString,
     settingsData.noImageMode
+  );
+  const [rotationMode, setRotationMode] = useMode(
+    "rotationMode",
+    dayString,
+    settingsData.rotationMode
   );
 
   const gameEnded =
@@ -109,7 +126,23 @@ export function Game({ settingsData }: GameProps) {
         }`}
         alt="country to guess"
         src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
+        style={
+          rotationMode && !hideImageMode && !gameEnded
+            ? {
+                transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
+              }
+            : {}
+        }
       />
+      {rotationMode && !hideImageMode && !gameEnded && (
+        <button
+          className="border-2 uppercase mb-2 hover:bg-gray-50 active:bg-gray-100"
+          type="button"
+          onClick={() => setRotationMode(false)}
+        >
+          {t("cancelRotation")}
+        </button>
+      )}
       <Guesses rowCount={MAX_TRY_COUNT} guesses={guesses} />
       <div className="my-2">
         {gameEnded ? (
@@ -117,6 +150,7 @@ export function Game({ settingsData }: GameProps) {
             guesses={guesses}
             dayString={dayString}
             hideImageMode={hideImageMode}
+            rotationMode={rotationMode}
           />
         ) : (
           <form onSubmit={handleSubmit}>

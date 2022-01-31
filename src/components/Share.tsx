@@ -16,9 +16,15 @@ interface ShareProps {
   guesses: Guess[];
   dayString: string;
   hideImageMode: boolean;
+  rotationMode: boolean;
 }
 
-export function Share({ guesses, dayString, hideImageMode }: ShareProps) {
+export function Share({
+  guesses,
+  dayString,
+  hideImageMode,
+  rotationMode,
+}: ShareProps) {
   const { t } = useTranslation();
 
   const shareText = useMemo(() => {
@@ -29,8 +35,12 @@ export function Share({ guesses, dayString, hideImageMode }: ShareProps) {
         "day"
       )
     );
-    const hiddenModeEmoji = hideImageMode ? " 🙈" : "";
-    const title = `Worldle #${dayCount} ${guessCount}/6${hiddenModeEmoji}`;
+    const difficultyModifierEmoji = hideImageMode
+      ? " 🙈"
+      : rotationMode
+      ? " 🌀"
+      : "";
+    const title = `Worldle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
 
     const guessString = guesses
       .map((guess) => {
