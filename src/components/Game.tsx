@@ -74,7 +74,7 @@ export function Game({ settingsData }: GameProps) {
       setCurrentGuess("");
 
       if (newGuess.distance === 0) {
-        toast.success(t("welldone"));
+        toast.success(t("welldone"), { delay: 2000 });
       }
     },
     [addGuess, country, currentGuess, i18n.resolvedLanguage, t]
@@ -87,6 +87,7 @@ export function Game({ settingsData }: GameProps) {
     ) {
       toast.info(getCountryName(i18n.resolvedLanguage, country).toUpperCase(), {
         autoClose: false,
+        delay: 2000,
       });
     }
   }, [country, guesses, i18n.resolvedLanguage]);
