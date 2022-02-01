@@ -42,9 +42,13 @@ export function GuessRow({ guess }: { guess?: Guess }) {
     }
 
     setAnimationState("RUNNING");
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setAnimationState("ENDED");
     }, SQUARE_ANIMATION_LENGTH * 6);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [guess]);
 
   switch (animationState) {
