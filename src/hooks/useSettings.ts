@@ -3,11 +3,13 @@ import { useCallback, useState } from "react";
 export interface SettingsData {
   noImageMode: boolean;
   rotationMode: boolean;
+  distanceUnit: "km" | "miles";
 }
 
 const defaultSettingsData: SettingsData = {
   noImageMode: false,
   rotationMode: false,
+  distanceUnit: "km",
 };
 
 function loadSettings(): SettingsData {

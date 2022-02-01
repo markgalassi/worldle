@@ -15,6 +15,7 @@ const resources = {
       cancelRotation: "🌀 Cancel rotation",
       settings: {
         title: "Settings",
+        distanceUnit: "Unit of distance",
         difficultyModifiers: "Difficulty modifiers",
         startingNextDay: "Starting the next day!",
         noImageMode: "Hide country image for more of a challenge.",
@@ -35,9 +36,10 @@ const resources = {
       cancelRotation: "🌀 Annule la rotation",
       settings: {
         title: "Paramètres",
+        distanceUnit: "Unité de distance",
         difficultyModifiers: "Modificateurs de difficulté",
         startingNextDay: "A partir du lendemain !",
-        noImageMode: "Cacher l'image du pays pour plus de challenge.",
+        noImageMode: "Cache l'image du pays pour plus de challenge.",
         rotationMode: "Tourne l'image du pays de manière aléatoire.",
       },
       buyMeACoffee: "Offrez moi un ☕ !",

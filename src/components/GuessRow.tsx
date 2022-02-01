@@ -1,6 +1,7 @@
 import {
   computeProximityPercent,
   Direction,
+  formatDistance,
   generateSquareCharacters,
 } from "../domain/geography";
 import { Guess } from "../domain/guess";
@@ -29,7 +30,12 @@ const DIRECTION_ARROWS: Record<Direction, string> = {
 const SQUARE_ANIMATION_LENGTH = 250;
 type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
 
-export function GuessRow({ guess }: { guess?: Guess }) {
+interface GuessRowProps {
+  guess?: Guess;
+  distanceUnit: "km" | "miles";
+}
+
+export function GuessRow({ guess, distanceUnit }: GuessRowProps) {
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
   const squares = generateSquareCharacters(proximity);
 
@@ -88,7 +94,7 @@ export function GuessRow({ guess }: { guess?: Guess }) {
             {guess?.name.toUpperCase()}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
-            {guess && `${Math.round(guess.distance / 1000)}km`}
+            {guess && formatDistance(guess.distance, distanceUnit)}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
             {guess?.distance === 0

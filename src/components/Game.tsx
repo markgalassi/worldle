@@ -143,7 +143,11 @@ export function Game({ settingsData }: GameProps) {
           {t("cancelRotation")}
         </button>
       )}
-      <Guesses rowCount={MAX_TRY_COUNT} guesses={guesses} />
+      <Guesses
+        rowCount={MAX_TRY_COUNT}
+        guesses={guesses}
+        distanceUnit={settingsData.distanceUnit}
+      />
       <div className="my-2">
         {gameEnded ? (
           <Share

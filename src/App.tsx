@@ -28,9 +28,17 @@ function App() {
         bodyClassName="font-bold text-center"
       />
       {i18n.resolvedLanguage === "fr" ? (
-        <InfosFr isOpen={infoOpen} close={() => setInfoOpen(false)} />
+        <InfosFr
+          isOpen={infoOpen}
+          close={() => setInfoOpen(false)}
+          distanceUnit={settingsData.distanceUnit}
+        />
       ) : (
-        <Infos isOpen={infoOpen} close={() => setInfoOpen(false)} />
+        <Infos
+          isOpen={infoOpen}
+          close={() => setInfoOpen(false)}
+          distanceUnit={settingsData.distanceUnit}
+        />
       )}
       <Settings
         isOpen={settingsOpen}

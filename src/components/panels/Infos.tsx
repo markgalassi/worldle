@@ -2,13 +2,15 @@ import { Guesses } from "../Guesses";
 import { Panel } from "./Panel";
 import React from "react";
 import { Worldle } from "../Worldle";
+import { formatDistance } from "../../domain/geography";
 
 interface InfosProps {
   isOpen: boolean;
   close: () => void;
+  distanceUnit: "km" | "miles";
 }
 
-export function Infos({ isOpen, close }: InfosProps) {
+export function Infos({ isOpen, close, distanceUnit }: InfosProps) {
   return (
     <Panel title="How to play" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -33,12 +35,13 @@ export function Infos({ isOpen, close }: InfosProps) {
                 distance: 13_557_000,
               },
             ]}
+            distanceUnit={distanceUnit}
           />
           <div className="my-2">
-            Your guess <span className="uppercase font-bold">Chile</span> is
-            13557km away from the target country, the target country is in the
-            North-East direction and you have a only 32% of proximity because
-            it&apos;s quite far away!
+            Your guess <span className="uppercase font-bold">Chile</span> is{" "}
+            {formatDistance(13557000, distanceUnit)} away from the target
+            country, the target country is in the North-East direction and you
+            have a only 32% of proximity because it&apos;s quite far away!
           </div>
         </div>
         <div>
@@ -51,11 +54,13 @@ export function Infos({ isOpen, close }: InfosProps) {
                 distance: 3_206_000,
               },
             ]}
+            distanceUnit={distanceUnit}
           />
           <div className="my-2">
             Your second guess{" "}
             <span className="uppercase font-bold">Finland</span> is getting
-            closer! 3206km away, South-East direction and 84%!
+            closer! {formatDistance(3206000, distanceUnit)} away, South-East
+            direction and 84%!
           </div>
         </div>
         <div>
@@ -68,6 +73,7 @@ export function Infos({ isOpen, close }: InfosProps) {
                 distance: 0,
               },
             ]}
+            distanceUnit={distanceUnit}
           />
           <div className="my-2">
             Next guess, <span className="uppercase font-bold">Lebanon</span>,

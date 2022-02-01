@@ -2,13 +2,15 @@ import { Guesses } from "../Guesses";
 import { Panel } from "./Panel";
 import React from "react";
 import { Worldle } from "../Worldle";
+import { formatDistance } from "../../domain/geography";
 
 interface InfosProps {
   isOpen: boolean;
   close: () => void;
+  distanceUnit: "km" | "miles";
 }
 
-export function InfosFr({ isOpen, close }: InfosProps) {
+export function InfosFr({ isOpen, close, distanceUnit }: InfosProps) {
   return (
     <Panel title="Comment jouer" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -34,12 +36,13 @@ export function InfosFr({ isOpen, close }: InfosProps) {
                 distance: 13_557_000,
               },
             ]}
+            distanceUnit={distanceUnit}
           />
           <div className="my-2">
-            Votre essai <span className="uppercase font-bold">Chili</span> est à
-            13557km du pays cible, le pays cible se trouve dans la direction
-            Nord-Est et vous avez une proximité de seulement 32% car votre essai
-            est plutôt éloigné !
+            Votre essai <span className="uppercase font-bold">Chili</span> est à{" "}
+            {formatDistance(13_557_000, distanceUnit)} du pays cible, le pays
+            cible se trouve dans la direction Nord-Est et vous avez une
+            proximité de seulement 32% car votre essai est plutôt éloigné !
           </div>
         </div>
         <div>
@@ -52,12 +55,14 @@ export function InfosFr({ isOpen, close }: InfosProps) {
                 distance: 3_206_000,
               },
             ]}
+            distanceUnit={distanceUnit}
           />
           <div className="my-2">
             Votre seconde essai{" "}
             <span className="uppercase font-bold">Finlande</span> est plus
-            proche ! La bonne réponse est à 3206km, au Sud-Est et la proximité
-            est de 84%!
+            proche ! La bonne réponse est à{" "}
+            {formatDistance(3_206_000, distanceUnit)}, au Sud-Est et la
+            proximité est de 84%!
           </div>
         </div>
         <div>
@@ -70,6 +75,7 @@ export function InfosFr({ isOpen, close }: InfosProps) {
                 distance: 0,
               },
             ]}
+            distanceUnit={distanceUnit}
           />
           <div className="my-2">
             Prochain essai, <span className="uppercase font-bold">Liban</span>,
