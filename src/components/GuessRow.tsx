@@ -90,8 +90,10 @@ export function GuessRow({ guess, distanceUnit }: GuessRowProps) {
     case "ENDED":
       return (
         <>
-          <div className="flex items-center justify-center text-ellipsis overflow-hidden whitespace-nowrap border-2 h-8 col-span-3 animate-reveal">
-            {guess?.name.toUpperCase()}
+          <div className="flex items-center justify-center border-2 h-8 col-span-3 animate-reveal">
+            <p className="text-ellipsis overflow-hidden whitespace-nowrap">
+              {guess?.name.toUpperCase()}
+            </p>
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
             {guess && formatDistance(guess.distance, distanceUnit)}
