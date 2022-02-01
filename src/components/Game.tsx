@@ -150,12 +150,22 @@ export function Game({ settingsData }: GameProps) {
       />
       <div className="my-2">
         {gameEnded ? (
-          <Share
-            guesses={guesses}
-            dayString={dayString}
-            hideImageMode={hideImageMode}
-            rotationMode={rotationMode}
-          />
+          <>
+            <Share
+              guesses={guesses}
+              dayString={dayString}
+              hideImageMode={hideImageMode}
+              rotationMode={rotationMode}
+            />
+            <a
+              className="underline w-full text-center block mt-4"
+              href={`https://www.google.com/maps?q=${country.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("showOnGoogleMaps")}
+            </a>
+          </>
         ) : (
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col">
