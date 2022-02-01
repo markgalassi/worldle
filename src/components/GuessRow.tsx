@@ -84,18 +84,18 @@ export function GuessRow({ guess }: { guess?: Guess }) {
     case "ENDED":
       return (
         <>
-          <div className="text-ellipsis overflow-hidden whitespace-nowrap border-2 h-8 col-span-3 animate-reveal">
+          <div className="flex items-center justify-center text-ellipsis overflow-hidden whitespace-nowrap border-2 h-8 col-span-3 animate-reveal">
             {guess?.name.toUpperCase()}
           </div>
-          <div className="border-2 h-8 col-span-2 animate-reveal">
+          <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
             {guess && `${Math.round(guess.distance / 1000)}km`}
           </div>
-          <div className="border-2 h-8 col-span-1 animate-reveal">
+          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
             {guess?.distance === 0
               ? "🎉"
               : guess && DIRECTION_ARROWS[guess.direction]}
           </div>
-          <div className="border-2 h-8 col-span-1 animate-reveal animate-pop">
+          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
             {`${proximity}%`}
           </div>
         </>
