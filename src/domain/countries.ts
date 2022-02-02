@@ -351,7 +351,7 @@ export const countries: Country[] = [
     code: "CD",
     latitude: -4.038333,
     longitude: 21.758664,
-    name: "Congo",
+    name: "Democratic Republic of the Congo",
   },
   {
     code: "CF",
@@ -928,7 +928,7 @@ const frenchCountryNames: Record<string, string> = {
   CC: "Cocos",
   CO: "Colombie",
   KM: "Comores",
-  CD: "Congo",
+  CD: "République démocratique du Congo",
   CG: "Congo",
   CK: "Cook",
   CR: "Costa Rica",
