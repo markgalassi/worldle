@@ -39,7 +39,7 @@ export function useSettings(): [
       setSettingsData(updatedSettings);
       localStorage.setItem("settings", JSON.stringify(updatedSettings));
     },
-    []
+    [settingsData]
   );
 
   return [settingsData, updateSettingsData];

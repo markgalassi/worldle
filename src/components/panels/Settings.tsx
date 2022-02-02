@@ -56,9 +56,7 @@ export function Settings({
             type="checkbox"
             id="setting-noImage"
             checked={settingsData.noImageMode}
-            onChange={() =>
-              updateSettings({ noImageMode: !settingsData.noImageMode })
-            }
+            onChange={(e) => updateSettings({ noImageMode: e.target.checked })}
           />
           <label className="flex-1 ml-2" htmlFor="setting-noImage">
             {t("settings.noImageMode")}
@@ -69,9 +67,7 @@ export function Settings({
             type="checkbox"
             id="setting-rotationMode"
             checked={settingsData.rotationMode}
-            onChange={() =>
-              updateSettings({ rotationMode: !settingsData.rotationMode })
-            }
+            onChange={(e) => updateSettings({ rotationMode: e.target.checked })}
           />
           <label className="flex-1 ml-2" htmlFor="setting-rotationMode">
             {t("settings.rotationMode")}
