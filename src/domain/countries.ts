@@ -247,7 +247,7 @@ const countryCodesWithImage = [
   "ye",
 ];
 
-interface Country {
+export interface Country {
   code: string;
   latitude: number;
   longitude: number;

@@ -1,10 +1,8 @@
 import { DateTime } from "luxon";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "react-toastify";
-import seedrandom from "seedrandom";
 import {
   countries,
-  countriesWithImage,
   getCountryName,
   sanitizeCountryName,
 } from "../domain/countries";
@@ -16,6 +14,7 @@ import { Guesses } from "./Guesses";
 import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
+import { useCountry } from "../hooks/useCountry";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
@@ -30,24 +29,8 @@ interface GameProps {
 export function Game({ settingsData }: GameProps) {
   const { t, i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
-  const country = useMemo(
-    () =>
-      countriesWithImage[
-        Math.floor(seedrandom.alea(dayString)() * countriesWithImage.length)
-      ],
-    [dayString]
-  );
 
-  const randomAngle = useMemo(
-    () => seedrandom.alea(dayString)() * 360,
-    [dayString]
-  );
-
-  const imageScale = useMemo(() => {
-    const normalizedAngle = 45 - (randomAngle % 90);
-    const radianAngle = (normalizedAngle * Math.PI) / 180;
-    return 1 / (Math.cos(radianAngle) * Math.sqrt(2));
-  }, [randomAngle]);
+  const [country, randomAngle, imageScale] = useCountry(dayString);
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, addGuess] = useGuesses(dayString);
