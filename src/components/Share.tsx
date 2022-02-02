@@ -40,7 +40,7 @@ export function Share({
       : rotationMode
       ? " 🌀"
       : "";
-    const title = `Worldle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
+    const title = `#Worldle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
 
     const guessString = guesses
       .map((guess) => {
