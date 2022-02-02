@@ -159,7 +159,10 @@ export function Game({ settingsData }: GameProps) {
             />
             <a
               className="underline w-full text-center block mt-4"
-              href={`https://www.google.com/maps?q=${country.name}`}
+              href={`https://www.google.com/maps?q=${getCountryName(
+                i18n.resolvedLanguage,
+                country
+              )}&hl=${i18n.resolvedLanguage}`}
               target="_blank"
               rel="noopener noreferrer"
             >
