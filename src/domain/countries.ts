@@ -732,7 +732,8 @@ export const countries: Country[] = [
     name: "Solomon Islands",
   },
   { code: "SC", latitude: -4.679574, longitude: 55.491977, name: "Seychelles" },
-  { code: "SD", latitude: 12.862807, longitude: 30.217636, name: "Sudan" },
+  { code: "SD", latitude: 15.8905231, longitude: 30.7671933, name: "Sudan" },
+  { code: "SS", latitude: 6.85065, longitude: 30.659016, name: "South Sudan" },
   { code: "SE", latitude: 60.128161, longitude: 18.643501, name: "Sweden" },
   { code: "SG", latitude: 1.352083, longitude: 103.819836, name: "Singapore" },
   {
