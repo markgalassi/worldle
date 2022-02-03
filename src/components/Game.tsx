@@ -103,20 +103,22 @@ export function Game({ settingsData }: GameProps) {
           {t("showCountry")}
         </button>
       )}
-      <img
-        className={`max-h-52 my-1 transition-all duration-700 ease-in ${
-          hideImageMode && !gameEnded ? "h-0" : "h-full"
-        }`}
-        alt="country to guess"
-        src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
-        style={
-          rotationMode && !hideImageMode && !gameEnded
-            ? {
-                transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
-              }
-            : {}
-        }
-      />
+      <div className="my-1">
+        <img
+          className={`max-h-52 m-auto transition-all duration-700 ease-in ${
+            hideImageMode && !gameEnded ? "h-0" : "h-full"
+          }`}
+          alt="country to guess"
+          src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
+          style={
+            rotationMode && !hideImageMode && !gameEnded
+              ? {
+                  transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
+                }
+              : {}
+          }
+        />
+      </div>
       {rotationMode && !hideImageMode && !gameEnded && (
         <button
           className="border-2 uppercase mb-2 hover:bg-gray-50 active:bg-gray-100"
