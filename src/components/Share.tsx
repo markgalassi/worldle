@@ -9,23 +9,19 @@ import {
 } from "../domain/geography";
 import { Guess } from "../domain/guess";
 import React from "react";
+import { SettingsData } from "../hooks/useSettings";
 
 const START_DATE = DateTime.fromISO("2022-01-21");
 
 interface ShareProps {
   guesses: Guess[];
   dayString: string;
-  hideImageMode: boolean;
-  rotationMode: boolean;
+  settingsData: SettingsData;
 }
 
-export function Share({
-  guesses,
-  dayString,
-  hideImageMode,
-  rotationMode,
-}: ShareProps) {
+export function Share({ guesses, dayString, settingsData }: ShareProps) {
   const { t } = useTranslation();
+  const { noImageMode, rotationMode, theme } = settingsData;
 
   const shareText = useMemo(() => {
     const guessCount =
@@ -35,7 +31,7 @@ export function Share({
         "day"
       )
     );
-    const difficultyModifierEmoji = hideImageMode
+    const difficultyModifierEmoji = noImageMode
       ? " 🙈"
       : rotationMode
       ? " 🌀"
@@ -45,12 +41,12 @@ export function Share({
     const guessString = guesses
       .map((guess) => {
         const percent = computeProximityPercent(guess.distance);
-        return generateSquareCharacters(percent).join("");
+        return generateSquareCharacters(percent, theme).join("");
       })
       .join("\n");
 
     return [title, guessString, "https://worldle.teuteuf.fr"].join("\n");
-  }, [dayString, guesses, hideImageMode]);
+  }, [dayString, guesses, noImageMode, theme]);
 
   return (
     <CopyToClipboard

@@ -96,7 +96,7 @@ export function Game({ settingsData }: GameProps) {
     <div className="flex-grow flex flex-col mx-2">
       {hideImageMode && !gameEnded && (
         <button
-          className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100"
+          className="border-2 uppercase my-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
           type="button"
           onClick={() => setHideImageMode(false)}
         >
@@ -105,13 +105,13 @@ export function Game({ settingsData }: GameProps) {
       )}
       <div className="my-1">
         <img
-          className={`max-h-52 m-auto transition-all duration-700 ease-in ${
+          className={`max-h-52 m-auto transition-transform duration-700 ease-in dark:invert ${
             hideImageMode && !gameEnded ? "h-0" : "h-full"
           }`}
           alt="country to guess"
           src={`images/countries/${country.code.toLowerCase()}/vector.svg`}
           style={
-            rotationMode && !hideImageMode && !gameEnded
+            rotationMode && !gameEnded
               ? {
                   transform: `rotate(${randomAngle}deg) scale(${imageScale})`,
                 }
@@ -121,7 +121,7 @@ export function Game({ settingsData }: GameProps) {
       </div>
       {rotationMode && !hideImageMode && !gameEnded && (
         <button
-          className="border-2 uppercase mb-2 hover:bg-gray-50 active:bg-gray-100"
+          className="border-2 uppercase mb-2 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
           type="button"
           onClick={() => setRotationMode(false)}
         >
@@ -131,7 +131,7 @@ export function Game({ settingsData }: GameProps) {
       <Guesses
         rowCount={MAX_TRY_COUNT}
         guesses={guesses}
-        distanceUnit={settingsData.distanceUnit}
+        settingsData={settingsData}
       />
       <div className="my-2">
         {gameEnded ? (
@@ -139,8 +139,7 @@ export function Game({ settingsData }: GameProps) {
             <Share
               guesses={guesses}
               dayString={dayString}
-              hideImageMode={hideImageMode}
-              rotationMode={rotationMode}
+              settingsData={settingsData}
             />
             <a
               className="underline w-full text-center block mt-4"
@@ -162,7 +161,7 @@ export function Game({ settingsData }: GameProps) {
                 setCurrentGuess={setCurrentGuess}
               />
               <button
-                className="border-2 uppercase my-0.5 hover:bg-gray-50 active:bg-gray-100"
+                className="border-2 uppercase my-0.5 hover:bg-gray-50 active:bg-gray-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
                 type="submit"
               >
                 🌍 {t("guess")}

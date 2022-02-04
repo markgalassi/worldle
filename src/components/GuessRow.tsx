@@ -7,6 +7,7 @@ import {
 import { Guess } from "../domain/guess";
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
+import { SettingsData } from "../hooks/useSettings";
 
 const DIRECTION_ARROWS: Record<Direction, string> = {
   N: "⬆️",
@@ -32,12 +33,13 @@ type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
 
 interface GuessRowProps {
   guess?: Guess;
-  distanceUnit: "km" | "miles";
+  settingsData: SettingsData;
 }
 
-export function GuessRow({ guess, distanceUnit }: GuessRowProps) {
+export function GuessRow({ guess, settingsData }: GuessRowProps) {
+  const { distanceUnit, theme } = settingsData;
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
-  const squares = generateSquareCharacters(proximity);
+  const squares = generateSquareCharacters(proximity, theme);
 
   const [animationState, setAnimationState] =
     useState<AnimationState>("NOT_STARTED");
@@ -59,7 +61,11 @@ export function GuessRow({ guess, distanceUnit }: GuessRowProps) {
 
   switch (animationState) {
     case "NOT_STARTED":
-      return <div className={`col-span-7 border-2 h-8 bg-gray-200`} />;
+      return (
+        <div
+          className={`col-span-7 border-2 h-8 bg-gray-200 dark:bg-slate-600`}
+        />
+      );
     case "RUNNING":
       return (
         <>

@@ -1,14 +1,15 @@
 import { Guess } from "../domain/guess";
 import { GuessRow } from "./GuessRow";
 import React from "react";
+import { SettingsData } from "../hooks/useSettings";
 
 interface GuessesProps {
   rowCount: number;
   guesses: Guess[];
-  distanceUnit: "km" | "miles";
+  settingsData: SettingsData;
 }
 
-export function Guesses({ rowCount, guesses, distanceUnit }: GuessesProps) {
+export function Guesses({ rowCount, guesses, settingsData }: GuessesProps) {
   return (
     <div>
       <div className="grid grid-cols-7 gap-1 text-center">
@@ -16,7 +17,7 @@ export function Guesses({ rowCount, guesses, distanceUnit }: GuessesProps) {
           <GuessRow
             key={index}
             guess={guesses[index]}
-            distanceUnit={distanceUnit}
+            settingsData={settingsData}
           />
         ))}
       </div>

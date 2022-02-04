@@ -23,14 +23,20 @@ export function computeProximityPercent(distance: number): number {
   return Math.round((proximity / MAX_DISTANCE_ON_EARTH) * 100);
 }
 
-export function generateSquareCharacters(proximity: number): string[] {
+export function generateSquareCharacters(
+  proximity: number,
+  theme: "light" | "dark"
+): string[] {
   const characters = new Array<string>(5);
   const greenSquareCount = Math.floor(proximity / 20);
   const yellowSquareCount = proximity - greenSquareCount * 20 >= 10 ? 1 : 0;
 
   characters.fill("🟩", 0, greenSquareCount);
   characters.fill("🟨", greenSquareCount, greenSquareCount + yellowSquareCount);
-  characters.fill("⬜", greenSquareCount + yellowSquareCount);
+  characters.fill(
+    theme === "light" ? "⬜" : "⬛",
+    greenSquareCount + yellowSquareCount
+  );
 
   return characters;
 }

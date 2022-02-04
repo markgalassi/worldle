@@ -17,6 +17,7 @@ const resources = {
       settings: {
         title: "Settings",
         distanceUnit: "Unit of distance",
+        theme: "Theme",
         difficultyModifiers: "Difficulty modifiers",
         startingNextDay: "Starting the next day!",
         noImageMode: "Hide country image for more of a challenge.",
@@ -39,6 +40,7 @@ const resources = {
       settings: {
         title: "Paramètres",
         distanceUnit: "Unité de distance",
+        theme: "Thème",
         difficultyModifiers: "Modificateurs de difficulté",
         startingNextDay: "A partir du lendemain !",
         noImageMode: "Cache l'image du pays pour plus de challenge.",

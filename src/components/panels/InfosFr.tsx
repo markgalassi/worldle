@@ -3,14 +3,15 @@ import { Panel } from "./Panel";
 import React from "react";
 import { Worldle } from "../Worldle";
 import { formatDistance } from "../../domain/geography";
+import { SettingsData } from "../../hooks/useSettings";
 
 interface InfosProps {
   isOpen: boolean;
   close: () => void;
-  distanceUnit: "km" | "miles";
+  settingsData: SettingsData;
 }
 
-export function InfosFr({ isOpen, close, distanceUnit }: InfosProps) {
+export function InfosFr({ isOpen, close, settingsData }: InfosProps) {
   return (
     <Panel title="Comment jouer" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -36,13 +37,14 @@ export function InfosFr({ isOpen, close, distanceUnit }: InfosProps) {
                 distance: 13_557_000,
               },
             ]}
-            distanceUnit={distanceUnit}
+            settingsData={settingsData}
           />
           <div className="my-2">
             Votre essai <span className="uppercase font-bold">Chili</span> est à{" "}
-            {formatDistance(13_557_000, distanceUnit)} du pays cible, le pays
-            cible se trouve dans la direction Nord-Est et vous avez une
-            proximité de seulement 32% car votre essai est plutôt éloigné !
+            {formatDistance(13_557_000, settingsData.distanceUnit)} du pays
+            cible, le pays cible se trouve dans la direction Nord-Est et vous
+            avez une proximité de seulement 32% car votre essai est plutôt
+            éloigné !
           </div>
         </div>
         <div>
@@ -55,14 +57,14 @@ export function InfosFr({ isOpen, close, distanceUnit }: InfosProps) {
                 distance: 3_206_000,
               },
             ]}
-            distanceUnit={distanceUnit}
+            settingsData={settingsData}
           />
           <div className="my-2">
             Votre seconde essai{" "}
             <span className="uppercase font-bold">Finlande</span> est plus
             proche ! La bonne réponse est à{" "}
-            {formatDistance(3_206_000, distanceUnit)}, au Sud-Est et la
-            proximité est de 84%!
+            {formatDistance(3_206_000, settingsData.distanceUnit)}, au Sud-Est
+            et la proximité est de 84%!
           </div>
         </div>
         <div>
@@ -75,7 +77,7 @@ export function InfosFr({ isOpen, close, distanceUnit }: InfosProps) {
                 distance: 0,
               },
             ]}
-            distanceUnit={distanceUnit}
+            settingsData={settingsData}
           />
           <div className="my-2">
             Prochain essai, <span className="uppercase font-bold">Liban</span>,

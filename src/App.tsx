@@ -1,7 +1,7 @@
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Infos } from "./components/panels/Infos";
 import { useTranslation } from "react-i18next";
 import { InfosFr } from "./components/panels/InfosFr";
@@ -17,13 +17,21 @@ function App() {
 
   const [settingsData, updateSettings] = useSettings();
 
+  useEffect(() => {
+    if (settingsData.theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [settingsData.theme]);
+
   return (
     <>
       <ToastContainer
         hideProgressBar
         position="top-center"
         transition={Flip}
-        theme="light"
+        theme={settingsData.theme}
         autoClose={2000}
         bodyClassName="font-bold text-center"
       />
@@ -31,13 +39,13 @@ function App() {
         <InfosFr
           isOpen={infoOpen}
           close={() => setInfoOpen(false)}
-          distanceUnit={settingsData.distanceUnit}
+          settingsData={settingsData}
         />
       ) : (
         <Infos
           isOpen={infoOpen}
           close={() => setInfoOpen(false)}
-          distanceUnit={settingsData.distanceUnit}
+          settingsData={settingsData}
         />
       )}
       <Settings
@@ -46,7 +54,7 @@ function App() {
         settingsData={settingsData}
         updateSettings={updateSettings}
       />
-      <div className="flex justify-center flex-auto">
+      <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
         <div className="w-full max-w-lg flex flex-col">
           <header className="border-b-2 border-gray-200 flex">
             <button

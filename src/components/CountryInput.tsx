@@ -38,13 +38,15 @@ export function CountryInput({
       onSuggestionsClearRequested={() => setSuggestions([])}
       getSuggestionValue={(suggestion) => suggestion}
       renderSuggestion={(suggestion) => (
-        <div className="border-2">{suggestion}</div>
+        <div className="border-2 dark:bg-slate-800 dark:text-slate-100">
+          {suggestion}
+        </div>
       )}
       containerProps={{
         className: "border-2 flex-auto relative",
       }}
       inputProps={{
-        className: "w-full",
+        className: "w-full dark:bg-slate-800 dark:text-slate-100",
         placeholder: t("placeholder"),
         value: currentGuess,
         onChange: (_e, { newValue }) => setCurrentGuess(newValue),
