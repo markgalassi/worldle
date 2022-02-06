@@ -89,7 +89,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div className="font-bold">About distance</div>
         <div>
-          The distances displayed corresponds to the distances between the
+          The distances displayed correspond to the distances between the
           selected and the target territory centers.
         </div>
         <div>
