@@ -87,6 +87,18 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         A new <Worldle /> will be available every day!
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
+        <div className="font-bold">About distance</div>
+        <div>
+          The distances displayed corresponds to the distances between the
+          selected and the target territory centers.
+        </div>
+        <div>
+          For instance, the computed distance between United States and Canada
+          is around {formatDistance(2_260_000, settingsData.distanceUnit)} even
+          if they have a common border.
+        </div>
+      </div>
+      <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <Worldle /> has been <span className="font-bold">heavily</span> inspired
         by{" "}
         <a

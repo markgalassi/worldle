@@ -89,6 +89,19 @@ export function InfosFr({ isOpen, close, settingsData }: InfosProps) {
         Un nouveau <Worldle /> sera disponible chaque jour !
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
+        <div className="font-bold">A propos de la distance</div>
+        <div>
+          Les distances affichées correspondent aux distances entre le centre du
+          pays choisi et de la cible.
+        </div>
+        <div>
+          Par exemple, la distance calculée entre les Etats-Unis et le Canada
+          est d&apos;environs{" "}
+          {formatDistance(2_260_000, settingsData.distanceUnit)} même si les
+          deux pays ont une frontière commune.
+        </div>
+      </div>
+      <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <Worldle /> a été <span className="font-bold">très</span> inpsiré par{" "}
         <a
           className="underline"
