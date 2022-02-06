@@ -140,6 +140,8 @@ export function Game({ settingsData }: GameProps) {
               guesses={guesses}
               dayString={dayString}
               settingsData={settingsData}
+              hideImageMode={hideImageMode}
+              rotationMode={rotationMode}
             />
             <a
               className="underline w-full text-center block mt-4"

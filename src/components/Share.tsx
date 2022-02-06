@@ -17,11 +17,19 @@ interface ShareProps {
   guesses: Guess[];
   dayString: string;
   settingsData: SettingsData;
+  hideImageMode: boolean;
+  rotationMode: boolean;
 }
 
-export function Share({ guesses, dayString, settingsData }: ShareProps) {
+export function Share({
+  guesses,
+  dayString,
+  settingsData,
+  hideImageMode,
+  rotationMode,
+}: ShareProps) {
   const { t } = useTranslation();
-  const { noImageMode, rotationMode, theme } = settingsData;
+  const { theme } = settingsData;
 
   const shareText = useMemo(() => {
     const guessCount =
@@ -31,7 +39,7 @@ export function Share({ guesses, dayString, settingsData }: ShareProps) {
         "day"
       )
     );
-    const difficultyModifierEmoji = noImageMode
+    const difficultyModifierEmoji = hideImageMode
       ? " 🙈"
       : rotationMode
       ? " 🌀"
@@ -46,7 +54,7 @@ export function Share({ guesses, dayString, settingsData }: ShareProps) {
       .join("\n");
 
     return [title, guessString, "https://worldle.teuteuf.fr"].join("\n");
-  }, [dayString, guesses, noImageMode, theme]);
+  }, [dayString, guesses, hideImageMode, rotationMode, theme]);
 
   return (
     <CopyToClipboard
