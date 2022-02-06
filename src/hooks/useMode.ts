@@ -23,7 +23,7 @@ export function useMode(
         [dayString]: modeValue,
       })
     );
-  }, [modeValue]);
+  }, [dayString, modeName, modeValue]);
 
   return [modeValue, setModeValue];
 }
