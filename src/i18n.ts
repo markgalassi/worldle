@@ -21,7 +21,7 @@ const resources = {
         difficultyModifiers: "Difficulty modifiers",
         startingNextDay: "Starting the next day!",
         noImageMode: "Hide country image for more of a challenge.",
-        rotationMode: "Rotate randomly country image.",
+        rotationMode: "Randomly rotate country image.",
       },
       buyMeACoffee: "Buy me a ☕!",
     },
