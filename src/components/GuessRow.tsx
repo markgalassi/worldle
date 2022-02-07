@@ -5,7 +5,7 @@ import {
   generateSquareCharacters,
 } from "../domain/geography";
 import { Guess } from "../domain/guess";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { SettingsData } from "../hooks/useSettings";
 
@@ -34,9 +34,14 @@ type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
 interface GuessRowProps {
   guess?: Guess;
   settingsData: SettingsData;
+  countryInputRef?: React.RefObject<HTMLInputElement>;
 }
 
-export function GuessRow({ guess, settingsData }: GuessRowProps) {
+export function GuessRow({
+  guess,
+  settingsData,
+  countryInputRef,
+}: GuessRowProps) {
   const { distanceUnit, theme } = settingsData;
   const proximity = guess != null ? computeProximityPercent(guess.distance) : 0;
   const squares = generateSquareCharacters(proximity, theme);
@@ -59,11 +64,18 @@ export function GuessRow({ guess, settingsData }: GuessRowProps) {
     };
   }, [guess]);
 
+  const handleClickOnEmptyRow = useCallback(() => {
+    if (countryInputRef?.current != null) {
+      countryInputRef?.current.focus();
+    }
+  }, [countryInputRef]);
+
   switch (animationState) {
     case "NOT_STARTED":
       return (
         <div
-          className={`col-span-7 border-2 h-8 bg-gray-200 dark:bg-slate-600`}
+          onClick={handleClickOnEmptyRow}
+          className={`col-span-7 h-8 bg-gray-200 dark:bg-slate-600`}
         />
       );
     case "RUNNING":

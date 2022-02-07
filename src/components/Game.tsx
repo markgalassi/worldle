@@ -1,5 +1,11 @@
 import { DateTime } from "luxon";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { toast } from "react-toastify";
 import {
   countries,
@@ -29,6 +35,8 @@ interface GameProps {
 export function Game({ settingsData }: GameProps) {
   const { t, i18n } = useTranslation();
   const dayString = useMemo(getDayString, []);
+
+  const countryInputRef = useRef<HTMLInputElement>(null);
 
   const [country, randomAngle, imageScale] = useCountry(dayString);
 
@@ -132,6 +140,7 @@ export function Game({ settingsData }: GameProps) {
         rowCount={MAX_TRY_COUNT}
         guesses={guesses}
         settingsData={settingsData}
+        countryInputRef={countryInputRef}
       />
       <div className="my-2">
         {gameEnded ? (
@@ -159,6 +168,7 @@ export function Game({ settingsData }: GameProps) {
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col">
               <CountryInput
+                inputRef={countryInputRef}
                 currentGuess={currentGuess}
                 setCurrentGuess={setCurrentGuess}
               />

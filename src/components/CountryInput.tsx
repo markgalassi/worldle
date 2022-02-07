@@ -9,11 +9,13 @@ import {
 } from "../domain/countries";
 
 interface CountryInputProps {
+  inputRef: React.RefObject<HTMLInputElement>;
   currentGuess: string;
   setCurrentGuess: (guess: string) => void;
 }
 
 export function CountryInput({
+  inputRef,
   currentGuess,
   setCurrentGuess,
 }: CountryInputProps) {
@@ -46,6 +48,7 @@ export function CountryInput({
         className: "border-2 flex-auto relative",
       }}
       inputProps={{
+        ref: inputRef,
         className: "w-full dark:bg-slate-800 dark:text-slate-100",
         placeholder: t("placeholder"),
         value: currentGuess,

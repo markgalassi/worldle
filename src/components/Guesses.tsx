@@ -7,9 +7,15 @@ interface GuessesProps {
   rowCount: number;
   guesses: Guess[];
   settingsData: SettingsData;
+  countryInputRef?: React.RefObject<HTMLInputElement>;
 }
 
-export function Guesses({ rowCount, guesses, settingsData }: GuessesProps) {
+export function Guesses({
+  rowCount,
+  guesses,
+  settingsData,
+  countryInputRef,
+}: GuessesProps) {
   return (
     <div>
       <div className="grid grid-cols-7 gap-1 text-center">
@@ -18,6 +24,7 @@ export function Guesses({ rowCount, guesses, settingsData }: GuessesProps) {
             key={index}
             guess={guesses[index]}
             settingsData={settingsData}
+            countryInputRef={countryInputRef}
           />
         ))}
       </div>
