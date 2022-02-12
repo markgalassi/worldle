@@ -1,5 +1,6 @@
 import Modal from "react-modal";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getStatsData } from "../../domain/stats";
 
 interface PanelProps {
   title: string;
@@ -9,6 +10,11 @@ interface PanelProps {
 }
 
 export function Panel({ title, isOpen, close, children }: PanelProps) {
+  const [debug, setDebug] = useState(0);
+  useEffect(() => {
+    setDebug(0);
+  }, [isOpen]);
+
   return (
     <Modal
       isOpen={isOpen}
@@ -18,7 +24,10 @@ export function Panel({ title, isOpen, close, children }: PanelProps) {
     >
       <div className="w-full max-w-lg bg-white dark:bg-slate-900 dark:text-slate-100 text-sm overflow-auto px-2">
         <header className="border-b-2 border-gray-200 mb-3 flex">
-          <h2 className="text-2xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
+          <h2
+            className="text-2xl font-bold uppercase tracking-wide text-center my-1 flex-auto"
+            onClick={() => setDebug((prev) => prev + 1)}
+          >
             {title}
           </h2>
           <button type="button" onClick={close}>
@@ -26,6 +35,7 @@ export function Panel({ title, isOpen, close, children }: PanelProps) {
           </button>
         </header>
         {children}
+        {debug >= 5 && <div>{JSON.stringify(getStatsData())}</div>}
       </div>
     </Modal>
   );

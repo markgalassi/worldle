@@ -21,7 +21,6 @@ export function Settings({
   return (
     <Panel title={t("settings.title")} isOpen={isOpen} close={close}>
       <div className="my-4">
-        <header className="my-2"></header>
         <div className="flex p-1">
           <select
             id="setting-distanceUnit"

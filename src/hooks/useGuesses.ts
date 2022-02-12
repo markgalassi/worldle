@@ -1,10 +1,5 @@
 import { useCallback, useState } from "react";
-import { Guess } from "../domain/guess";
-
-function loadAllGuesses(): Record<string, Guess[]> {
-  const storedGuesses = localStorage.getItem("guesses");
-  return storedGuesses != null ? JSON.parse(storedGuesses) : {};
-}
+import { Guess, loadAllGuesses, saveGuesses } from "../domain/guess";
 
 export function useGuesses(
   dayString: string
@@ -13,28 +8,14 @@ export function useGuesses(
     loadAllGuesses()[dayString] ?? []
   );
 
-  const saveGuesses = useCallback(
-    (guesses: Guess[]) => {
-      const allGuesses = loadAllGuesses();
-      localStorage.setItem(
-        "guesses",
-        JSON.stringify({
-          ...allGuesses,
-          [dayString]: guesses,
-        })
-      );
-    },
-    [dayString]
-  );
-
   const addGuess = useCallback(
     (newGuess: Guess) => {
       const newGuesses = [...guesses, newGuess];
 
       setGuesses(newGuesses);
-      saveGuesses(newGuesses);
+      saveGuesses(dayString, newGuesses);
     },
-    [guesses, saveGuesses]
+    [dayString, guesses]
   );
 
   return [guesses, addGuess];
