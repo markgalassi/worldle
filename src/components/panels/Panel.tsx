@@ -35,7 +35,7 @@ export function Panel({ title, isOpen, close, children }: PanelProps) {
           </button>
         </header>
         {children}
-        {debug >= 5 && <div>{JSON.stringify(getStatsData())}</div>}
+        {debug >= 5 && <div>!!!{JSON.stringify(getStatsData())}</div>}
       </div>
     </Modal>
   );
