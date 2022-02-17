@@ -8,12 +8,14 @@ import { InfosFr } from "./components/panels/InfosFr";
 import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Worldle } from "./components/Worldle";
+import { Stats } from "./components/panels/Stats";
 
 function App() {
   const { t, i18n } = useTranslation();
 
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [statsOpen, setStatsOpen] = useState(false);
 
   const [settingsData, updateSettings] = useSettings();
 
@@ -54,11 +56,16 @@ function App() {
         settingsData={settingsData}
         updateSettings={updateSettings}
       />
+      <Stats
+        isOpen={statsOpen}
+        close={() => setStatsOpen(false)}
+        distanceUnit={settingsData.distanceUnit}
+      />
       <div className="flex justify-center flex-auto dark:bg-slate-900 dark:text-slate-50">
         <div className="w-full max-w-lg flex flex-col">
-          <header className="border-b-2 border-gray-200 flex">
+          <header className="border-b-2 px-3 border-gray-200 flex">
             <button
-              className="mx-3 text-xl"
+              className="mr-3 text-xl"
               type="button"
               onClick={() => setInfoOpen(true)}
             >
@@ -68,7 +75,14 @@ function App() {
               Wor<span className="text-green-600">l</span>dle
             </h1>
             <button
-              className="mx-3 text-xl"
+              className="ml-3 text-xl"
+              type="button"
+              onClick={() => setStatsOpen(true)}
+            >
+              📈
+            </button>
+            <button
+              className="ml-3 text-xl"
               type="button"
               onClick={() => setSettingsOpen(true)}
             >
