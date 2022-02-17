@@ -29,7 +29,7 @@ const resources = {
         win: "Win %",
         currentStreak: "Current Streak",
         maxStreak: "Max Streak",
-        averageBestDistance: "Average Best Distances",
+        averageBestDistance: "Best Distances Average",
         guessDistribution: "Guess distribution:",
       },
       buyMeACoffee: "Buy me a ☕!",
