@@ -67,7 +67,7 @@ const resources = {
       buyMeACoffee: "Offrez moi un ☕ !",
     },
   },
-es: {
+  es: {
     translation: {
       placeholder: "País, Territorios...",
       guess: "Adivinar",
