@@ -102,7 +102,7 @@ export function InfosFr({ isOpen, close, settingsData }: InfosProps) {
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Worldle /> a été <span className="font-bold">très</span> inpsiré par{" "}
+        <Worldle /> a été <span className="font-bold">très</span> inspiré par{" "}
         <a
           className="underline"
           href="https://www.powerlanguage.co.uk/wordle/"
