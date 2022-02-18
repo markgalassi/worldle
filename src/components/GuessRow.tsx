@@ -1,32 +1,13 @@
 import {
   computeProximityPercent,
-  Direction,
   formatDistance,
   generateSquareCharacters,
+  getDirectionEmoji,
 } from "../domain/geography";
 import { Guess } from "../domain/guess";
 import React, { useCallback, useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { SettingsData } from "../hooks/useSettings";
-
-const DIRECTION_ARROWS: Record<Direction, string> = {
-  N: "⬆️",
-  NNE: "↗️",
-  NE: "↗️",
-  ENE: "↗️",
-  E: "➡️",
-  ESE: "↘️",
-  SE: "↘️",
-  SSE: "↘️",
-  S: "⬇️",
-  SSW: "↙️",
-  SW: "↙️",
-  WSW: "↙️",
-  W: "⬅️",
-  WNW: "↖️",
-  NW: "↖️",
-  NNW: "↖️",
-};
 
 const SQUARE_ANIMATION_LENGTH = 250;
 type AnimationState = "NOT_STARTED" | "RUNNING" | "ENDED";
@@ -117,9 +98,7 @@ export function GuessRow({
             {guess && formatDistance(guess.distance, distanceUnit)}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
-            {guess?.distance === 0
-              ? "🎉"
-              : guess && DIRECTION_ARROWS[guess.direction]}
+            {guess && getDirectionEmoji(guess)}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
             {`${proximity}%`}

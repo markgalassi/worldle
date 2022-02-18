@@ -1,3 +1,5 @@
+import { Guess } from "./guess";
+
 const MAX_DISTANCE_ON_EARTH = 20_000_000;
 
 export type Direction =
@@ -17,6 +19,29 @@ export type Direction =
   | "NW"
   | "NNW"
   | "N";
+
+const DIRECTION_ARROWS: Record<Direction, string> = {
+  N: "⬆️",
+  NNE: "↗️",
+  NE: "↗️",
+  ENE: "↗️",
+  E: "➡️",
+  ESE: "↘️",
+  SE: "↘️",
+  SSE: "↘️",
+  S: "⬇️",
+  SSW: "↙️",
+  SW: "↙️",
+  WSW: "↙️",
+  W: "⬅️",
+  WNW: "↖️",
+  NW: "↖️",
+  NNW: "↖️",
+};
+
+export function getDirectionEmoji(guess: Guess) {
+  return guess.distance === 0 ? "🎉" : DIRECTION_ARROWS[guess.direction];
+}
 
 export function computeProximityPercent(distance: number): number {
   const proximity = Math.max(MAX_DISTANCE_ON_EARTH - distance, 0);

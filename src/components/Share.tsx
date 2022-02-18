@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import {
   computeProximityPercent,
   generateSquareCharacters,
+  getDirectionEmoji,
 } from "../domain/geography";
 import { Guess } from "../domain/guess";
 import React from "react";
@@ -32,8 +33,9 @@ export function Share({
   const { theme } = settingsData;
 
   const shareText = useMemo(() => {
-    const guessCount =
-      guesses[guesses.length - 1]?.distance === 0 ? guesses.length : "X";
+    const win = guesses[guesses.length - 1]?.distance === 0;
+    const bestDistance = Math.min(...guesses.map(({ distance }) => distance));
+    const guessCount = win ? guesses.length : "X";
     const dayCount = Math.floor(
       Interval.fromDateTimes(START_DATE, DateTime.fromISO(dayString)).length(
         "day"
@@ -44,12 +46,17 @@ export function Share({
       : rotationMode
       ? " 🌀"
       : "";
-    const title = `#Worldle #${dayCount} ${guessCount}/6${difficultyModifierEmoji}`;
+    const bestPercent = `(${computeProximityPercent(
+      bestDistance
+    ).toString()}%)`;
+    const title = `#Worldle #${dayCount} ${guessCount}/6 ${bestPercent}${difficultyModifierEmoji}`;
 
     const guessString = guesses
       .map((guess) => {
         const percent = computeProximityPercent(guess.distance);
-        return generateSquareCharacters(percent, theme).join("");
+        const squares = generateSquareCharacters(percent, theme).join("");
+        const direction = getDirectionEmoji(guess);
+        return `${squares}${direction}`;
       })
       .join("\n");
 
