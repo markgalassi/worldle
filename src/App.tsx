@@ -9,9 +9,13 @@ import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Worldle } from "./components/Worldle";
 import { Stats } from "./components/panels/Stats";
+import { useReactPWAInstall } from "@teuteuf/react-pwa-install";
+import { InstallButton } from "./components/InstallButton";
 
 function App() {
   const { t, i18n } = useTranslation();
+
+  const { pwaInstall, supported, isInstalled } = useReactPWAInstall();
 
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -71,6 +75,9 @@ function App() {
             >
               ❔
             </button>
+            {supported() && !isInstalled() && (
+              <InstallButton pwaInstall={pwaInstall} />
+            )}
             <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
               Wor<span className="text-green-600">l</span>dle
             </h1>
