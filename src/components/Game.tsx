@@ -75,7 +75,12 @@ export function Game({ settingsData }: GameProps) {
       const newGuess = {
         name: currentGuess,
         distance: geolib.getDistance(guessedCountry, country),
-        direction: geolib.getCompassDirection(guessedCountry, country),
+        direction: geolib.getCompassDirection(
+          guessedCountry,
+          country,
+          (origin, dest) =>
+            Math.round(geolib.getRhumbLineBearing(origin, dest) / 45) * 45
+        ),
       };
 
       addGuess(newGuess);
