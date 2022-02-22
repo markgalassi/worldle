@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import React, { useEffect, useState } from "react";
-import { getStatsData } from "../../domain/stats";
+import { loadAllGuesses } from "../../domain/guess";
 
 interface PanelProps {
   title: string;
@@ -35,7 +35,7 @@ export function Panel({ title, isOpen, close, children }: PanelProps) {
           </button>
         </header>
         {children}
-        {debug >= 5 && <div>!!!{JSON.stringify(getStatsData())}</div>}
+        {debug >= 5 && <div>!!!{JSON.stringify(loadAllGuesses())}</div>}
       </div>
     </Modal>
   );
