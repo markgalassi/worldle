@@ -1,6 +1,7 @@
 import Modal from "react-modal";
 import React, { useEffect, useState } from "react";
 import { loadAllGuesses } from "../../domain/guess";
+import { Twemoji } from "react-emoji-render";
 
 interface PanelProps {
   title: string;
@@ -31,7 +32,7 @@ export function Panel({ title, isOpen, close, children }: PanelProps) {
             {title}
           </h2>
           <button type="button" onClick={close}>
-            ✖️
+            <Twemoji text="❌" />
           </button>
         </header>
         {children}
