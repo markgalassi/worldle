@@ -4,7 +4,7 @@ import React from "react";
 import { Worldle } from "../Worldle";
 import { formatDistance } from "../../domain/geography";
 import { SettingsData } from "../../hooks/useSettings";
-import { Twemoji } from "react-emoji-render";
+import { Twemoji } from "@teuteuf/react-emoji-render";
 
 interface InfosProps {
   isOpen: boolean;

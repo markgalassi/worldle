@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { useCountry } from "../hooks/useCountry";
-import { Twemoji } from "react-emoji-render";
+import { Twemoji } from "@teuteuf/react-emoji-render";
 
 function getDayString() {
   return DateTime.now().toFormat("yyyy-MM-dd");
