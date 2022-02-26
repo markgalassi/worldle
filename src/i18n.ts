@@ -50,6 +50,9 @@ const resources = {
         instructionOperaAction2: "- add to Home Screen",
         instructionNotSupported: "Not supported by this browser.",
       },
+      support: {
+        UA: "Support the Ukrainian Red Cross",
+      },
       buyMeACoffee: "Buy me a ☕!",
     },
   },
@@ -100,6 +103,9 @@ const resources = {
         instructionOperaAction1: "- appuyer sur le bouton menu ",
         instructionOperaAction2: "- ajouter à l'écran d'accueil",
         instructionNotSupported: "Impossible sur ce navigateur.",
+      },
+      support: {
+        UA: "Soutenez la Croix Rouge Ukrainienne",
       },
       buyMeACoffee: "Offrez moi un ☕ !",
     },

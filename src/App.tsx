@@ -1,7 +1,7 @@
 import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Infos } from "./components/panels/Infos";
 import { useTranslation } from "react-i18next";
 import { InfosFr } from "./components/panels/InfosFr";
@@ -12,9 +12,17 @@ import { Stats } from "./components/panels/Stats";
 import { useReactPWAInstall } from "@teuteuf/react-pwa-install";
 import { InstallButton } from "./components/InstallButton";
 import { Twemoji } from "@teuteuf/react-emoji-render";
+import { getDayString, useCountry } from "./hooks/useCountry";
+
+const supportLink: Record<string, string> = {
+  UA: "https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1",
+};
 
 function App() {
   const { t, i18n } = useTranslation();
+
+  const dayString = useMemo(getDayString, []);
+  const [country] = useCountry(dayString);
 
   const { pwaInstall, supported, isInstalled } = useReactPWAInstall();
 
@@ -104,19 +112,30 @@ function App() {
               className="flex items-center justify-center mr-1"
             />{" "}
             <Worldle />? -
-            <a
-              className="underline pl-1"
-              href="https://www.ko-fi.com/teuteuf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="w-max">
-                <Twemoji
-                  text={t("buyMeACoffee")}
-                  options={{ className: "inline-block" }}
-                />
-              </div>
-            </a>
+            {supportLink[country.code] != null ? (
+              <a
+                className="underline pl-1"
+                href={supportLink[country.code]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="w-max">{t(`support.${country.code}`)}</div>
+              </a>
+            ) : (
+              <a
+                className="underline pl-1"
+                href="https://www.ko-fi.com/teuteuf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="w-max">
+                  <Twemoji
+                    text={t("buyMeACoffee")}
+                    options={{ className: "inline-block" }}
+                  />
+                </div>
+              </a>
+            )}
           </footer>
         </div>
       </div>
