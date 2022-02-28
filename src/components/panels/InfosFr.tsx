@@ -134,6 +134,15 @@ export function InfosFr({ isOpen, close, settingsData }: InfosProps) {
             rel="noopener noreferrer"
           >
             @teuteuf
+          </a>{" "}
+          - (
+          <a
+            className="underline"
+            href="https://github.com/teuteuf/worldle/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sources
           </a>
         </div>
         <div>
