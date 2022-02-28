@@ -91,16 +91,18 @@ export function InfosFr({ isOpen, close, settingsData }: InfosProps) {
         Un nouveau <Worldle /> sera disponible chaque jour !
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">A propos de la distance</div>
+        <div className="font-bold">Une question ou suggestion ?</div>
         <div>
-          Les distances affichées correspondent aux distances entre le centre du
-          pays choisi et de la cible.
-        </div>
-        <div>
-          Par exemple, la distance calculée entre les Etats-Unis et le Canada
-          est d&apos;environs{" "}
-          {formatDistance(2_260_000, settingsData.distanceUnit)} même si les
-          deux pays ont une frontière commune.
+          Rendez-vous sur la{" "}
+          <a
+            className="underline"
+            href="https://worldle.notion.site/Worldle-4005ca16fc9341e7be8adcfd30628146"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            FAQ Worldle
+          </a>{" "}
+          !
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -142,8 +144,9 @@ export function InfosFr({ isOpen, close, settingsData }: InfosProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Sources
+            code source
           </a>
+          )
         </div>
         <div>
           Vous voulez me soutenir ?{" "}

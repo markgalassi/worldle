@@ -89,15 +89,18 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         A new <Worldle /> will be available every day!
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">About distance</div>
+        <div className="font-bold">Any question or suggestion?</div>
         <div>
-          The distances displayed correspond to the distances between the
-          selected and the target territory centers.
-        </div>
-        <div>
-          For instance, the computed distance between United States and Canada
-          is around {formatDistance(2_260_000, settingsData.distanceUnit)} even
-          if they have a common border.
+          Check the{" "}
+          <a
+            className="underline"
+            href="https://worldle.notion.site/Worldle-b84ab0f002e34866980a4d47cf9291b7"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Worldle FAQ
+          </a>
+          !
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
@@ -140,7 +143,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Sources
+            source code
           </a>
           )
         </div>
