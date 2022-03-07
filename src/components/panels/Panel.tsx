@@ -1,6 +1,5 @@
 import Modal from "react-modal";
 import React, { useEffect, useState } from "react";
-import { loadAllGuesses } from "../../domain/guess";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 
 interface PanelProps {
@@ -8,13 +7,26 @@ interface PanelProps {
   isOpen: boolean;
   close: () => void;
   children?: React.ReactNode;
+  debugAction?: () => void;
 }
 
-export function Panel({ title, isOpen, close, children }: PanelProps) {
-  const [debug, setDebug] = useState(0);
+export function Panel({
+  title,
+  isOpen,
+  close,
+  children,
+  debugAction,
+}: PanelProps) {
+  const [debug, setDebug] = useState(5);
   useEffect(() => {
-    setDebug(0);
+    setDebug(5);
   }, [isOpen]);
+
+  useEffect(() => {
+    if (debug === 0 && debugAction != null) {
+      debugAction();
+    }
+  }, [debug, debugAction]);
 
   return (
     <Modal
@@ -27,7 +39,7 @@ export function Panel({ title, isOpen, close, children }: PanelProps) {
         <header className="border-b-2 border-gray-200 mb-3 flex">
           <h2
             className="text-2xl font-bold uppercase tracking-wide text-center my-1 flex-auto"
-            onClick={() => setDebug((prev) => prev + 1)}
+            onClick={() => setDebug((prev) => prev - 1)}
           >
             {title}
           </h2>
@@ -36,7 +48,6 @@ export function Panel({ title, isOpen, close, children }: PanelProps) {
           </button>
         </header>
         {children}
-        {debug >= 5 && <div>!!!{JSON.stringify(loadAllGuesses())}</div>}
       </div>
     </Modal>
   );

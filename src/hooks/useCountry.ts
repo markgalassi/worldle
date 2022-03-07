@@ -8,8 +8,10 @@ const forcedCountries: Record<string, string> = {
   "2022-02-03": "PY",
 };
 
-export function getDayString() {
-  return DateTime.now().toFormat("yyyy-MM-dd");
+export function getDayString(shiftDayCount?: number) {
+  return DateTime.now()
+    .plus({ days: shiftDayCount ?? 0 })
+    .toFormat("yyyy-MM-dd");
 }
 
 export function useCountry(dayString: string): [Country, number, number] {

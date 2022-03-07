@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SettingsData } from "../../hooks/useSettings";
 import { Panel } from "./Panel";
@@ -17,9 +17,15 @@ export function Settings({
   updateSettings,
 }: SettingsProps) {
   const { t } = useTranslation();
+  const [debugEnabled, setDebugEnabled] = useState(false);
 
   return (
-    <Panel title={t("settings.title")} isOpen={isOpen} close={close}>
+    <Panel
+      title={t("settings.title")}
+      isOpen={isOpen}
+      close={close}
+      debugAction={() => setDebugEnabled(true)}
+    >
       <div className="my-4">
         <div className="flex p-1">
           <select
@@ -92,6 +98,35 @@ export function Settings({
           </label>
         </div>
       </div>
+      {debugEnabled && (
+        <div className="my-4">
+          <header className="my-2">
+            <h3 className="text-lg font-bold">Debug Menu</h3>
+          </header>
+          <div className="flex p-1">
+            <select
+              id="setting-shiftDayCount"
+              className="h-8 dark:bg-slate-800"
+              value={settingsData.shiftDayCount}
+              onChange={(e) =>
+                updateSettings({ shiftDayCount: parseInt(e.target.value) })
+              }
+            >
+              {Array.from(Array(8).keys()).map((i) => (
+                <option key={i} value={i}>
+                  {i}
+                </option>
+              ))}
+            </select>
+            <label
+              className="flex-1 ml-2 flex items-center"
+              htmlFor="setting-shiftDayCount"
+            >
+              Shift day count
+            </label>
+          </div>
+        </div>
+      )}
     </Panel>
   );
 }

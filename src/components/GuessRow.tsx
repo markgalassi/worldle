@@ -32,6 +32,8 @@ export function GuessRow({
     useState<AnimationState>("NOT_STARTED");
 
   useEffect(() => {
+    setAnimationState("NOT_STARTED");
+
     if (guess == null) {
       return;
     }

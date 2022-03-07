@@ -1,12 +1,14 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Guess, loadAllGuesses, saveGuesses } from "../domain/guess";
 
 export function useGuesses(
   dayString: string
 ): [Guess[], (guess: Guess) => void] {
-  const [guesses, setGuesses] = useState<Guess[]>(
-    loadAllGuesses()[dayString] ?? []
-  );
+  const [guesses, setGuesses] = useState<Guess[]>([]);
+
+  useEffect(() => {
+    setGuesses(loadAllGuesses()[dayString] ?? []);
+  }, [dayString]);
 
   const addGuess = useCallback(
     (newGuess: Guess) => {

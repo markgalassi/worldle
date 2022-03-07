@@ -30,7 +30,10 @@ interface GameProps {
 
 export function Game({ settingsData }: GameProps) {
   const { t, i18n } = useTranslation();
-  const dayString = useMemo(getDayString, []);
+  const dayString = useMemo(
+    () => getDayString(settingsData.shiftDayCount),
+    [settingsData.shiftDayCount]
+  );
 
   const countryInputRef = useRef<HTMLInputElement>(null);
 
