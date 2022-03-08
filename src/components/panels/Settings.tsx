@@ -104,6 +104,22 @@ export function Settings({
             <h3 className="text-lg font-bold">Debug Menu</h3>
           </header>
           <div className="flex p-1">
+            <input
+              type="checkbox"
+              id="setting-allowShiftingDay"
+              checked={settingsData.allowShiftingDay}
+              onChange={(e) =>
+                updateSettings({ allowShiftingDay: e.target.checked })
+              }
+            />
+            <label
+              className="flex-1 ml-2 flex items-center"
+              htmlFor="setting-allowShiftingDay"
+            >
+              Allow shifting day
+            </label>
+          </div>
+          <div className="flex p-1">
             <select
               id="setting-shiftDayCount"
               className="h-8 dark:bg-slate-800"

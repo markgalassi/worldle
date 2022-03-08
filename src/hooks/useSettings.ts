@@ -6,6 +6,7 @@ export interface SettingsData {
   distanceUnit: "km" | "miles";
   theme: "light" | "dark";
   shiftDayCount: number;
+  allowShiftingDay: boolean;
 }
 
 const defaultSettingsData: SettingsData = {
@@ -16,6 +17,7 @@ const defaultSettingsData: SettingsData = {
     ? "dark"
     : "light",
   shiftDayCount: 0,
+  allowShiftingDay: false,
 };
 
 function loadSettings(): SettingsData {

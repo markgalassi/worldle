@@ -12,7 +12,7 @@ import { Stats } from "./components/panels/Stats";
 import { useReactPWAInstall } from "@teuteuf/react-pwa-install";
 import { InstallButton } from "./components/InstallButton";
 import { Twemoji } from "@teuteuf/react-emoji-render";
-import { getDayString, useCountry } from "./hooks/useCountry";
+import { getDayString, useTodays } from "./hooks/useTodays";
 
 const supportLink: Record<string, string> = {
   UA: "https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1",
@@ -22,7 +22,7 @@ function App() {
   const { t, i18n } = useTranslation();
 
   const dayString = useMemo(getDayString, []);
-  const [country] = useCountry(dayString);
+  const [{ country }] = useTodays(dayString);
 
   const { pwaInstall, supported, isInstalled } = useReactPWAInstall();
 
@@ -105,14 +105,14 @@ function App() {
               <Twemoji text="⚙️" />
             </button>
           </header>
-          <Game settingsData={settingsData} />
+          <Game settingsData={settingsData} updateSettings={updateSettings} />
           <footer className="flex justify-center items-center text-sm mt-8 mb-1">
             <Twemoji
               text="❤️"
               className="flex items-center justify-center mr-1"
             />{" "}
             <Worldle />? -
-            {supportLink[country.code] != null ? (
+            {country && supportLink[country.code] != null ? (
               <a
                 className="underline pl-1"
                 href={supportLink[country.code]}
