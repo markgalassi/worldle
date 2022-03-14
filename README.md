@@ -19,5 +19,5 @@ Otherwise, feel free to fork the project, customize it and play with it on your 
 - Countries with long/lat => https://developers.google.com/public-data/docs/canonical/countries_csv
 - French country names => https://fr.wikipedia.org/wiki/ISO_3166
 - Country images => https://github.com/djaiss/mapsicon
-- Fixed images => http://www.amcharts.com/svg-maps/
-- World icon => https://github.com/twitter/twemoji
+- Fixed images => http://www.amcharts.com/svg-maps/ & Wikipedia
+- Emojis & World icon => https://github.com/twitter/twemoji
