@@ -59,14 +59,14 @@ export function GuessRow({
       return (
         <div
           onClick={handleClickOnEmptyRow}
-          className={`col-span-7 h-8 bg-gray-200 dark:bg-slate-600`}
+          className={`col-span-7 h-8 bg-gray-200 dark:bg-slate-600 rounded`}
         />
       );
     case "RUNNING":
       return (
         <>
           <div
-            className={`flex text-2xl w-full justify-evenly items-center col-span-6 border-2 h-8`}
+            className={`flex text-2xl w-full justify-evenly items-center col-span-6 border-2 h-8 rounded`}
           >
             {squares.map((character, index) => (
               <div
@@ -80,7 +80,7 @@ export function GuessRow({
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
+          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal rounded">
             <CountUp
               end={proximity}
               suffix="%"
@@ -92,18 +92,18 @@ export function GuessRow({
     case "ENDED":
       return (
         <>
-          <div className="flex items-center justify-center border-2 h-8 col-span-3 animate-reveal">
+          <div className="flex items-center justify-center border-2 h-8 col-span-3 animate-reveal rounded">
             <p className="text-ellipsis overflow-hidden whitespace-nowrap">
               {guess?.name.toUpperCase()}
             </p>
           </div>
-          <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal">
+          <div className="flex items-center justify-center border-2 h-8 col-span-2 animate-reveal rounded">
             {guess && formatDistance(guess.distance, distanceUnit)}
           </div>
-          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal">
+          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal rounded">
             {guess && <Twemoji text={getDirectionEmoji(guess)} />}
           </div>
-          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop">
+          <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop rounded">
             {`${proximity}%`}
           </div>
         </>

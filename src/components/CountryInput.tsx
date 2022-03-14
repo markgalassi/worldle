@@ -45,11 +45,11 @@ export function CountryInput({
         </div>
       )}
       containerProps={{
-        className: "border-2 flex-auto relative",
+        className: "border-2 rounded flex-auto relative",
       }}
       inputProps={{
         ref: inputRef,
-        className: "w-full dark:bg-slate-800 dark:text-slate-100",
+        className: "w-full dark:bg-slate-800 dark:text-slate-100 p-1",
         placeholder: t("placeholder"),
         value: currentGuess,
         onChange: (_e, { newValue }) => setCurrentGuess(newValue),
