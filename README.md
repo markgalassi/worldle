@@ -4,7 +4,7 @@ Play this geographical wordle here: https://worldle.teuteuf.fr !
 
 ## Contributions & PR
 
-Even if there is much more users that I could ever imagine on Worldle, it was originally a small pet project that I started in order to  practice code and have fun.
+Even if there are many more users than I could ever imagine on Worldle, it was originally a small pet project that I started in order to  practice code and have fun.
 
 So, I prefer to continue to manage it personally and do all the design and the code by myself.  :)
 
