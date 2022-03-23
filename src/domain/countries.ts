@@ -1100,7 +1100,7 @@ export const countries: Country[] = [
     code: "MK",
     latitude: 41.608635,
     longitude: 21.745275,
-    name: "Macedonia",
+    name: "North Macedonia",
   },
   {
     code: "ML",
