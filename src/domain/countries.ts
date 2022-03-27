@@ -1526,7 +1526,7 @@ export const countries: Country[] = [
     code: "TF",
     latitude: -49.280366,
     longitude: 69.348557,
-    name: "French Southern Territories",
+    name: "French Southern Territories - Kerguelen Islands",
   },
   {
     code: "TG",
@@ -1812,7 +1812,7 @@ const frenchCountryNames: Record<string, string> = {
   FR: "France",
   GF: "Guyane française",
   PF: "Polynésie française",
-  TF: "Terres australes françaises",
+  TF: "Terres australes françaises - Iles Kerguelen",
   GA: "Gabon",
   GM: "Gambie",
   GE: "Géorgie",
