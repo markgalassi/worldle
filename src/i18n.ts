@@ -53,6 +53,7 @@ const resources = {
       support: {
         UA: "Support the Ukrainian Red Cross",
       },
+      newVersion: "New version available! <br/> Click here to update!",
       buyMeACoffee: "Buy me a ☕!",
     },
   },
@@ -107,6 +108,8 @@ const resources = {
       support: {
         UA: "Soutenez la Croix Rouge Ukrainienne",
       },
+      newVersion:
+        "Nouvelle version disponible ! <br/> Cliquez ici pour mettre à jour !",
       buyMeACoffee: "Offrez moi un ☕ !",
     },
   },

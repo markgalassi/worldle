@@ -1,4 +1,4 @@
-import { ToastContainer, Flip } from "react-toastify";
+import { ToastContainer, Flip, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
 import React, { useEffect, useMemo, useState } from "react";
@@ -13,12 +13,20 @@ import { useReactPWAInstall } from "@teuteuf/react-pwa-install";
 import { InstallButton } from "./components/InstallButton";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 import { getDayString, useTodays } from "./hooks/useTodays";
+import {
+  LocalStoragePersistenceService,
+  ServiceWorkerUpdaterProps,
+  withServiceWorkerUpdater,
+} from "@3m1/service-worker-updater";
 
 const supportLink: Record<string, string> = {
   UA: "https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1",
 };
 
-function App() {
+function App({
+  newServiceWorkerDetected,
+  onLoadNewServiceWorkerAccept,
+}: ServiceWorkerUpdaterProps) {
   const { t, i18n } = useTranslation();
 
   const dayString = useMemo(getDayString, []);
@@ -31,6 +39,18 @@ function App() {
   const [statsOpen, setStatsOpen] = useState(false);
 
   const [settingsData, updateSettings] = useSettings();
+
+  useEffect(() => {
+    if (newServiceWorkerDetected) {
+      toast.info(
+        <div dangerouslySetInnerHTML={{ __html: t("newVersion") }} />,
+        {
+          autoClose: false,
+          onClose: () => onLoadNewServiceWorkerAccept(),
+        }
+      );
+    }
+  }, [newServiceWorkerDetected, onLoadNewServiceWorkerAccept, t]);
 
   useEffect(() => {
     if (settingsData.theme === "dark") {
@@ -143,4 +163,6 @@ function App() {
   );
 }
 
-export default App;
+export default withServiceWorkerUpdater(App, {
+  persistenceService: new LocalStoragePersistenceService("worldle"),
+});
