@@ -40,6 +40,10 @@ export function Game({ settingsData, updateSettings }: GameProps) {
 
   const [todays, addGuess, randomAngle, imageScale] = useTodays(dayString);
   const { country, guesses } = todays;
+  const countryName = useMemo(
+    () => (country ? getCountryName(i18n.resolvedLanguage, country) : ""),
+    [country, i18n.resolvedLanguage]
+  );
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [hideImageMode, setHideImageMode] = useMode(
@@ -204,15 +208,25 @@ export function Game({ settingsData, updateSettings }: GameProps) {
             />
             <a
               className="underline w-full text-center block mt-4"
-              href={`https://www.google.com/maps?q=${getCountryName(
-                i18n.resolvedLanguage,
-                country
-              )}+${country.code.toUpperCase()}&hl=${i18n.resolvedLanguage}`}
+              href={`https://www.google.com/maps?q=${countryName}+${country.code.toUpperCase()}&hl=${
+                i18n.resolvedLanguage
+              }`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Twemoji
                 text={t("showOnGoogleMaps")}
+                options={{ className: "inline-block" }}
+              />
+            </a>
+            <a
+              className="underline w-full text-center block mt-4"
+              href={`https://${i18n.resolvedLanguage}.wikipedia.org/wiki/${countryName}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twemoji
+                text={t("showOnWikipedia")}
                 options={{ className: "inline-block" }}
               />
             </a>
