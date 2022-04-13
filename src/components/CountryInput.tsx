@@ -2,11 +2,8 @@ import { t } from "i18next";
 import React, { useState } from "react";
 import Autosuggest from "react-autosuggest";
 import { useTranslation } from "react-i18next";
-import {
-  countries,
-  getCountryName,
-  sanitizeCountryName,
-} from "../domain/countries";
+import { getCountryName, sanitizeCountryName } from "../domain/countries";
+import { countries } from "../domain/countries.position";
 
 interface CountryInputProps {
   inputRef: React.RefObject<HTMLInputElement>;

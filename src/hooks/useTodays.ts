@@ -2,12 +2,12 @@ import { DateTime } from "luxon";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import seedrandom from "seedrandom";
 import {
-  areas,
   bigEnoughCountriesWithImage,
   countriesWithImage,
   Country,
   smallCountryLimit,
 } from "../domain/countries";
+import { areas } from "../domain/countries.area";
 import { Guess, loadAllGuesses, saveGuesses } from "../domain/guess";
 
 const forcedCountries: Record<string, string> = {
