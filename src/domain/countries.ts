@@ -7,6 +7,7 @@ import { areas } from "./countries.area";
 import { countries } from "./countries.position";
 import { frenchCountryNames } from "./countries.name.fr";
 import { hungarianCountryNames } from "./countries.name.hu";
+import { dutchCountryNames } from "./countries.name.nl";
 import { countryCodesWithImage } from "./countries.image";
 
 export interface Country {
@@ -31,6 +32,8 @@ export function getCountryName(language: string, country: Country) {
       return frenchCountryNames[country.code];
     case "hu":
       return hungarianCountryNames[country.code];
+    case "nl":
+      return dutchCountryNames[country.code];
     default:
       return country.name;
   }
