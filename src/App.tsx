@@ -6,6 +6,7 @@ import { Infos } from "./components/panels/Infos";
 import { useTranslation } from "react-i18next";
 import { InfosFr } from "./components/panels/InfosFr";
 import { InfosHu } from "./components/panels/InfosHu";
+import { InfosNl } from "./components/panels/InfosNl";
 import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Worldle } from "./components/Worldle";
@@ -44,6 +45,9 @@ export default function App() {
       break;
     case "hu":
       InfosComponent = InfosHu;
+      break;
+    case "nl":
+      InfosComponent = InfosNl;
       break;
     default:
       InfosComponent = Infos;
