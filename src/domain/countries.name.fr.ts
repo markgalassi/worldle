@@ -122,7 +122,7 @@ export const frenchCountryNames: Record<string, string> = {
   KR: "Corée du Sud",
   KW: "Koweït",
   KG: "Kirghizistan",
-  LA: "Lao",
+  LA: "Laos",
   LV: "Lettonie",
   LB: "Liban",
   LS: "Lesotho",
