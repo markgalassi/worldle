@@ -43,10 +43,7 @@ function App({
   const [settingsData, updateSettings] = useSettings();
 
   useEffect(() => {
-    if (
-      !settingsData.updateNotificationDisabled &&
-      (newServiceWorkerDetected || true)
-    ) {
+    if (!settingsData.updateNotificationDisabled && newServiceWorkerDetected) {
       toast.info(
         <UpdateNotification
           onLoadNewServiceWorkerAccept={onLoadNewServiceWorkerAccept}
