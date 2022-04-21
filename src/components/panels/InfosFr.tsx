@@ -61,7 +61,7 @@ export function InfosFr({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Votre seconde essai{" "}
+            Votre second essai{" "}
             <span className="uppercase font-bold">Finlande</span> est plus
             proche ! La bonne réponse est à{" "}
             {formatDistance(3_206_000, settingsData.distanceUnit)}, au Sud-Est
