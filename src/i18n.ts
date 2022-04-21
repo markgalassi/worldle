@@ -23,6 +23,7 @@ const resources = {
         startingNextDay: "Starting the next day!",
         noImageMode: "Hide country image for more of a challenge.",
         rotationMode: "Randomly rotate country image.",
+        updateNotificationDisabled: "Disable update notifications.",
       },
       stats: {
         title: "Statistics",
@@ -54,7 +55,10 @@ const resources = {
       support: {
         UA: "Support the Ukrainian Red Cross",
       },
-      newVersion: "New version available! <br/> Click here to update!",
+      newVersion: "New version available!",
+      update: "Update",
+      or: "or",
+      ignore: "Ignore",
       buyMeACoffee: "Buy me a ☕!",
     },
   },
@@ -78,6 +82,8 @@ const resources = {
         startingNextDay: "A partir du lendemain !",
         noImageMode: "Cache l'image du pays pour plus de challenge.",
         rotationMode: "Tourne l'image du pays de manière aléatoire.",
+        updateNotificationDisabled:
+          "Désactive les notification de mise à jour.",
       },
       stats: {
         title: "Statistiques",
@@ -110,8 +116,10 @@ const resources = {
       support: {
         UA: "Soutenez la Croix Rouge Ukrainienne",
       },
-      newVersion:
-        "Nouvelle version disponible ! <br/> Cliquez ici pour mettre à jour !",
+      newVersion: "Nouvelle version disponible !",
+      update: "Mettre à jour",
+      or: "ou",
+      ignore: "Ignorer",
       buyMeACoffee: "Offrez moi un ☕ !",
     },
   },

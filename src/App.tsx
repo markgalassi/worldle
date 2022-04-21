@@ -19,6 +19,7 @@ import {
   ServiceWorkerUpdaterProps,
   withServiceWorkerUpdater,
 } from "@3m1/service-worker-updater";
+import { UpdateNotification } from "./components/UpdateNotification";
 
 const supportLink: Record<string, string> = {
   UA: "https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1",
@@ -42,16 +43,32 @@ function App({
   const [settingsData, updateSettings] = useSettings();
 
   useEffect(() => {
-    if (newServiceWorkerDetected) {
+    if (
+      !settingsData.updateNotificationDisabled &&
+      (newServiceWorkerDetected || true)
+    ) {
       toast.info(
-        <div dangerouslySetInnerHTML={{ __html: t("newVersion") }} />,
+        <UpdateNotification
+          onLoadNewServiceWorkerAccept={onLoadNewServiceWorkerAccept}
+          ignoreUpdateNotification={() => {
+            updateSettings({ updateNotificationDisabled: true });
+            toast.dismiss();
+          }}
+        />,
         {
           autoClose: false,
-          onClose: () => onLoadNewServiceWorkerAccept(),
+          closeOnClick: false,
         }
       );
     }
-  }, [newServiceWorkerDetected, onLoadNewServiceWorkerAccept, t]);
+  }, [
+    newServiceWorkerDetected,
+    onLoadNewServiceWorkerAccept,
+    settingsData,
+    statsOpen,
+    t,
+    updateSettings,
+  ]);
 
   useEffect(() => {
     if (settingsData.theme === "dark") {

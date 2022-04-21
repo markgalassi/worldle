@@ -26,7 +26,7 @@ export function Settings({
       close={close}
       debugAction={() => setDebugEnabled(true)}
     >
-      <div className="my-4">
+      <div className="my-4 flex flex-col gap-2">
         <div className="flex p-1">
           <select
             id="setting-distanceUnit"
@@ -65,8 +65,24 @@ export function Settings({
             {t("settings.theme")}
           </label>
         </div>
+        <div className="flex p-1">
+          <input
+            type="checkbox"
+            id="setting-updateNotificationDisabled"
+            checked={settingsData.updateNotificationDisabled}
+            onChange={(e) =>
+              updateSettings({ updateNotificationDisabled: e.target.checked })
+            }
+          />
+          <label
+            className="flex-1 ml-2 flex items-center"
+            htmlFor="setting-updateNotificationDisabled"
+          >
+            {t("settings.updateNotificationDisabled")}
+          </label>
+        </div>
       </div>
-      <div className="my-4">
+      <div className="my-4 flex flex-col gap-2">
         <header className="my-2">
           <h3 className="text-lg font-bold">
             {t("settings.difficultyModifiers")}
