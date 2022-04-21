@@ -62,9 +62,7 @@ function App({
   }, [
     newServiceWorkerDetected,
     onLoadNewServiceWorkerAccept,
-    settingsData,
-    statsOpen,
-    t,
+    settingsData.updateNotificationDisabled,
     updateSettings,
   ]);
 
