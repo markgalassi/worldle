@@ -44,6 +44,7 @@ function App({
 
   useEffect(() => {
     if (!settingsData.updateNotificationDisabled && newServiceWorkerDetected) {
+      toast.dismiss();
       toast.info(
         <UpdateNotification
           onLoadNewServiceWorkerAccept={onLoadNewServiceWorkerAccept}
