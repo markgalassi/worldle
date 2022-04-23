@@ -42,8 +42,12 @@ function App({
 
   const [settingsData, updateSettings] = useSettings();
 
+  const displayUpdateNotification =
+    !settingsData.updateNotificationDisabled &&
+    newServiceWorkerDetected &&
+    false;
   useEffect(() => {
-    if (!settingsData.updateNotificationDisabled && newServiceWorkerDetected) {
+    if (displayUpdateNotification) {
       toast.dismiss();
       toast.info(
         <UpdateNotification
@@ -59,12 +63,7 @@ function App({
         }
       );
     }
-  }, [
-    newServiceWorkerDetected,
-    onLoadNewServiceWorkerAccept,
-    settingsData.updateNotificationDisabled,
-    updateSettings,
-  ]);
+  }, [displayUpdateNotification, onLoadNewServiceWorkerAccept, updateSettings]);
 
   useEffect(() => {
     if (settingsData.theme === "dark") {
