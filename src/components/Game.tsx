@@ -18,6 +18,7 @@ import { useMode } from "../hooks/useMode";
 import { getDayString, useTodays } from "../hooks/useTodays";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 import { countries } from "../domain/countries.position";
+import { useNewsNotifications } from "../hooks/useNewsNotifications";
 
 const MAX_TRY_COUNT = 6;
 
@@ -32,6 +33,8 @@ export function Game({ settingsData, updateSettings }: GameProps) {
     () => getDayString(settingsData.shiftDayCount),
     [settingsData.shiftDayCount]
   );
+
+  useNewsNotifications(dayString);
 
   const countryInputRef = useRef<HTMLInputElement>(null);
 

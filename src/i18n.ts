@@ -60,6 +60,9 @@ const resources = {
       or: "or",
       ignore: "Ignore",
       buyMeACoffee: "Buy me a ☕!",
+      news: {
+        newsNotifications: "News notifications system added!",
+      },
     },
   },
   fr: {
@@ -121,6 +124,7 @@ const resources = {
       or: "ou",
       ignore: "Ignorer",
       buyMeACoffee: "Offrez moi un ☕ !",
+      news: {},
     },
   },
   es: {
