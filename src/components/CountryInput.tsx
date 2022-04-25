@@ -50,7 +50,6 @@ export function CountryInput({
         placeholder: t("placeholder"),
         value: currentGuess,
         onChange: (_e, { newValue }) => setCurrentGuess(newValue),
-        autoFocus: true,
       }}
       renderSuggestionsContainer={({ containerProps, children }) => (
         <div
