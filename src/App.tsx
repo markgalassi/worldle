@@ -94,6 +94,8 @@ function App({
         theme={settingsData.theme}
         autoClose={2000}
         bodyClassName="font-bold text-center"
+        toastClassName="flex justify-center m-2 max-w-full"
+        style={{ width: 500, maxWidth: "100%" }}
       />
       <InfosComponent
         isOpen={infoOpen}
