@@ -19,6 +19,8 @@ const forcedCountries: Record<string, string> = {
   "2022-03-24": "MX",
 };
 
+const noRepeatStartDate = DateTime.fromFormat("2022-05-01", "yyyy-MM-dd");
+
 export function getDayString(shiftDayCount?: number) {
   return DateTime.now()
     .plus({ days: shiftDayCount ?? 0 })
@@ -80,6 +82,8 @@ function getCountry(dayString: string) {
   let smallCountryCooldown = 0;
   let pickedCountry: Country | null = null;
 
+  const lastPickDates: Record<string, DateTime> = {};
+
   do {
     smallCountryCooldown--;
 
@@ -98,20 +102,45 @@ function getCountry(dayString: string) {
         ? countriesWithImage
         : bigEnoughCountriesWithImage;
 
-    pickedCountry =
-      forcedCountry ??
-      countrySelection[
-        Math.floor(
-          seedrandom.alea(pickingDateString)() * countrySelection.length
-        )
-      ];
+    if (forcedCountry != null) {
+      pickedCountry = forcedCountry;
+    } else {
+      let countryIndex = Math.floor(
+        seedrandom.alea(pickingDateString)() * countrySelection.length
+      );
+      pickedCountry = countrySelection[countryIndex];
+
+      if (currentDayDate >= noRepeatStartDate) {
+        while (isARepeat(pickedCountry, lastPickDates, currentDayDate)) {
+          countryIndex = (countryIndex + 1) % countrySelection.length;
+          pickedCountry = countrySelection[countryIndex];
+        }
+      }
+    }
 
     if (areas[pickedCountry.code] < smallCountryLimit) {
       smallCountryCooldown = 7;
     }
 
+    lastPickDates[pickedCountry.code] = pickingDate;
     pickingDate = pickingDate.plus({ day: 1 });
   } while (pickingDate <= currentDayDate);
 
   return pickedCountry;
+}
+
+function isARepeat(
+  pickedCountry: Country | null,
+  lastPickDates: Record<string, DateTime>,
+  currentDayDate: DateTime
+) {
+  if (pickedCountry == null || lastPickDates[pickedCountry.code] == null) {
+    return false;
+  }
+  const daysSinceLastPick = lastPickDates[pickedCountry.code].diff(
+    currentDayDate,
+    "day"
+  ).days;
+
+  return daysSinceLastPick < 100;
 }
