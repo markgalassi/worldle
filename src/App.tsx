@@ -1,4 +1,4 @@
-import { ToastContainer, Flip, toast } from "react-toastify";
+import { ToastContainer, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Game } from "./components/Game";
 import React, { useEffect, useMemo, useState } from "react";
@@ -10,60 +10,24 @@ import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Worldle } from "./components/Worldle";
 import { Stats } from "./components/panels/Stats";
-import { useReactPWAInstall } from "@teuteuf/react-pwa-install";
-import { InstallButton } from "./components/InstallButton";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 import { getDayString, useTodays } from "./hooks/useTodays";
-import {
-  LocalStoragePersistenceService,
-  ServiceWorkerUpdaterProps,
-  withServiceWorkerUpdater,
-} from "@3m1/service-worker-updater";
-import { UpdateNotification } from "./components/UpdateNotification";
 
 const supportLink: Record<string, string> = {
   UA: "https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1",
 };
 
-function App({
-  newServiceWorkerDetected,
-  onLoadNewServiceWorkerAccept,
-}: ServiceWorkerUpdaterProps) {
+export default function App() {
   const { t, i18n } = useTranslation();
 
   const dayString = useMemo(getDayString, []);
   const [{ country }] = useTodays(dayString);
-
-  const { pwaInstall, supported, isInstalled } = useReactPWAInstall();
 
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [statsOpen, setStatsOpen] = useState(false);
 
   const [settingsData, updateSettings] = useSettings();
-
-  const displayUpdateNotification =
-    !settingsData.updateNotificationDisabled &&
-    newServiceWorkerDetected &&
-    false;
-  useEffect(() => {
-    if (displayUpdateNotification) {
-      toast.dismiss();
-      toast.info(
-        <UpdateNotification
-          onLoadNewServiceWorkerAccept={onLoadNewServiceWorkerAccept}
-          ignoreUpdateNotification={() => {
-            updateSettings({ updateNotificationDisabled: true });
-            toast.dismiss();
-          }}
-        />,
-        {
-          autoClose: false,
-          closeOnClick: false,
-        }
-      );
-    }
-  }, [displayUpdateNotification, onLoadNewServiceWorkerAccept, updateSettings]);
 
   useEffect(() => {
     if (settingsData.theme === "dark") {
@@ -123,9 +87,6 @@ function App({
             >
               <Twemoji text="❓" />
             </button>
-            {supported() && !isInstalled() && (
-              <InstallButton pwaInstall={pwaInstall} />
-            )}
             <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
               Wor<span className="text-green-600">l</span>dle
             </h1>
@@ -181,7 +142,3 @@ function App({
     </>
   );
 }
-
-export default withServiceWorkerUpdater(App, {
-  persistenceService: new LocalStoragePersistenceService("worldle"),
-});
