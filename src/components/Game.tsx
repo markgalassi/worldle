@@ -206,30 +206,32 @@ export function Game({ settingsData, updateSettings }: GameProps) {
               hideImageMode={hideImageMode}
               rotationMode={rotationMode}
             />
-            <a
-              className="underline w-full text-center block mt-4"
-              href={`https://www.google.com/maps?q=${countryName}+${country.code.toUpperCase()}&hl=${
-                i18n.resolvedLanguage
-              }`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twemoji
-                text={t("showOnGoogleMaps")}
-                options={{ className: "inline-block" }}
-              />
-            </a>
-            <a
-              className="underline w-full text-center block mt-4"
-              href={`https://${i18n.resolvedLanguage}.wikipedia.org/wiki/${countryName}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Twemoji
-                text={t("showOnWikipedia")}
-                options={{ className: "inline-block" }}
-              />
-            </a>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                className="underline text-center block mt-4 whitespace-nowrap"
+                href={`https://www.google.com/maps?q=${countryName}+${country.code.toUpperCase()}&hl=${
+                  i18n.resolvedLanguage
+                }`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twemoji
+                  text={t("showOnGoogleMaps")}
+                  options={{ className: "inline-block" }}
+                />
+              </a>
+              <a
+                className="underline text-center block mt-4 whitespace-nowrap"
+                href={`https://${i18n.resolvedLanguage}.wikipedia.org/wiki/${countryName}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Twemoji
+                  text={t("showOnWikipedia")}
+                  options={{ className: "inline-block" }}
+                />
+              </a>
+            </div>
           </>
         ) : (
           <form onSubmit={handleSubmit}>

@@ -110,7 +110,7 @@ export default function App() {
             </button>
           </header>
           <Game settingsData={settingsData} updateSettings={updateSettings} />
-          <footer className="flex justify-center items-center text-sm mt-8 mb-1">
+          <footer className="flex justify-center items-center mt-8 mb-4">
             <Twemoji
               text="❤️"
               className="flex items-center justify-center mr-1"
