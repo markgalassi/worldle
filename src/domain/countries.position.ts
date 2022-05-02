@@ -501,8 +501,8 @@ export const countries: Country[] = [
   },
   {
     code: "GP",
-    latitude: 16.995971,
-    longitude: -62.067641,
+    latitude: 16.08663,
+    longitude: -61.422873,
     name: "Guadeloupe",
   },
   {
