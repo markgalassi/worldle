@@ -205,7 +205,7 @@ export const hungarianCountryNames: Record<string, string> = {
   SC: "Seychelle-szigetek",
   SL: "Sierra Leone",
   SX: "Sint Maarten",
-  ES: "Flag of Spain.svg Spanyolország",
+  ES: "Spanyolország",
   SJ: "Norvégia Spitzbergák és Jan Mayen-sziget",
   LK: "Srí Lanka",
   SR: "Suriname",
