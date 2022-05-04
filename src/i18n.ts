@@ -60,6 +60,7 @@ const resources = {
       or: "or",
       ignore: "Ignore",
       buyMeACoffee: "Buy me a ☕!",
+      supportFolk: "Upvote folk! 🎉",
       news: {
         newsNotifications: "News notifications system added!",
       },
@@ -124,6 +125,7 @@ const resources = {
       or: "ou",
       ignore: "Ignorer",
       buyMeACoffee: "Offrez moi un ☕ !",
+      supportFolk: "Votez pour folk ! 🎉",
       news: {},
     },
   },
