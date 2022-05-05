@@ -128,13 +128,13 @@ export default function App() {
             ) : (
               <a
                 className="underline pl-1"
-                href="https://twitter.com/teuteuf/status/1521758690197520385"
+                href="https://www.ko-fi.com/teuteuf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <div className="w-max">
                   <Twemoji
-                    text={t("supportFolk")}
+                    text={t("buyMeACoffee")}
                     options={{ className: "inline-block" }}
                   />
                 </div>
