@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { SettingsData } from "../../hooks/useSettings";
+import { translations } from "../../i18n";
 import { Panel } from "./Panel";
 
 interface SettingsProps {
@@ -16,7 +17,7 @@ export function Settings({
   settingsData,
   updateSettings,
 }: SettingsProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [debugEnabled, setDebugEnabled] = useState(false);
 
   return (
@@ -30,7 +31,7 @@ export function Settings({
         <div className="flex p-1">
           <select
             id="setting-distanceUnit"
-            className="h-8 dark:bg-slate-800"
+            className="h-8 dark:bg-slate-800 w-16 p-1"
             value={settingsData.distanceUnit}
             onChange={(e) =>
               updateSettings({ distanceUnit: e.target.value as "km" | "miles" })
@@ -49,7 +50,7 @@ export function Settings({
         <div className="flex p-1">
           <select
             id="setting-theme"
-            className="h-8 dark:bg-slate-800"
+            className="h-8 dark:bg-slate-800 w-16 p-1"
             value={settingsData.theme}
             onChange={(e) =>
               updateSettings({ theme: e.target.value as "light" | "dark" })
@@ -66,19 +67,23 @@ export function Settings({
           </label>
         </div>
         <div className="flex p-1">
-          <input
-            type="checkbox"
-            id="setting-updateNotificationDisabled"
-            checked={settingsData.updateNotificationDisabled}
-            onChange={(e) =>
-              updateSettings({ updateNotificationDisabled: e.target.checked })
-            }
-          />
+          <select
+            id="setting-language"
+            className="h-8 dark:bg-slate-800 w-16 p-1"
+            value={i18n.language}
+            onChange={(e) => i18n.changeLanguage(e.target.value)}
+          >
+            {Object.keys(translations).map((language) => (
+              <option key={language} value={language}>
+                {language.toUpperCase()}
+              </option>
+            ))}
+          </select>
           <label
             className="flex-1 ml-2 flex items-center"
-            htmlFor="setting-updateNotificationDisabled"
+            htmlFor="setting-language"
           >
-            {t("settings.updateNotificationDisabled")}
+            {t("settings.language")}
           </label>
         </div>
       </div>

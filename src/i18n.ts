@@ -2,7 +2,7 @@ import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
-const resources = {
+export const translations = {
   en: {
     translation: {
       placeholder: "Country, territory...",
@@ -19,6 +19,7 @@ const resources = {
         title: "Settings",
         distanceUnit: "Unit of distance",
         theme: "Theme",
+        language: "Language",
         difficultyModifiers: "Difficulty modifiers",
         startingNextDay: "Starting the next day!",
         noImageMode: "Hide country image for more of a challenge.",
@@ -81,6 +82,7 @@ const resources = {
         title: "Paramètres",
         distanceUnit: "Unité de distance",
         theme: "Thème",
+        language: "Langage",
         difficultyModifiers: "Modificateurs de difficulté",
         startingNextDay: "A partir du lendemain !",
         noImageMode: "Cache l'image du pays pour plus de challenge.",
@@ -310,7 +312,7 @@ i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    resources,
+    resources: translations,
     interpolation: {
       escapeValue: false,
     },
