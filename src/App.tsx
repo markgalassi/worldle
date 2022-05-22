@@ -92,7 +92,7 @@ export default function App() {
               <Twemoji text="❓" />
             </button>
             <h1 className="text-4xl font-bold uppercase tracking-wide text-center my-1 flex-auto">
-              Wor<span className="text-green-600">l</span>dle
+              Wordle<span className="text-green-600">Geo</span>graphy.com
             </h1>
             <button
               className="ml-3 text-xl"
