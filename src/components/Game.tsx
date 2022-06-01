@@ -240,7 +240,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
                 rel="noopener noreferrer"
               >
                 <Twemoji
-                  text="More? Comme play on Twitch! 👾"
+                  text="More? Play on Twitch! 👾"
                   options={{ className: "inline-block" }}
                 />
               </a>
