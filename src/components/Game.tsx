@@ -20,7 +20,7 @@ import { Twemoji } from "@teuteuf/react-emoji-render";
 import { countries } from "../domain/countries.position";
 import { useNewsNotifications } from "../hooks/useNewsNotifications";
 
-const ENABLE_TWITCH_LINK = true;
+const ENABLE_TWITCH_LINK = false;
 const MAX_TRY_COUNT = 6;
 
 interface GameProps {
