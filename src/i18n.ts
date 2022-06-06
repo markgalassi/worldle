@@ -25,6 +25,7 @@ export const translations = {
         noImageMode: "Hide country image for more of a challenge.",
         rotationMode: "Randomly rotate country image.",
         updateNotificationDisabled: "Disable update notifications.",
+        showScale: "Replace proximity percent by size percent.",
       },
       stats: {
         title: "Statistics",
@@ -89,6 +90,8 @@ export const translations = {
         rotationMode: "Tourne l'image du pays de manière aléatoire.",
         updateNotificationDisabled:
           "Désactive les notification de mise à jour.",
+        showScale:
+          "Remplace le pourcentage de proximité par le pourcentage de taille.",
       },
       stats: {
         title: "Statistiques",

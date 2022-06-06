@@ -192,6 +192,7 @@ export function Game({ settingsData, updateSettings }: GameProps) {
         </button>
       )}
       <Guesses
+        targetCountry={country}
         rowCount={MAX_TRY_COUNT}
         guesses={guesses}
         settingsData={settingsData}
