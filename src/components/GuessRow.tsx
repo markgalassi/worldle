@@ -50,7 +50,13 @@ export function GuessRow({
   const sizePercent =
     targetCountry &&
     guessedCountry &&
-    Math.round((areas[targetCountry.code] / areas[guessedCountry.code]) * 100);
+    Math.min(
+      999,
+      Math.round((areas[targetCountry.code] / areas[guessedCountry.code]) * 100)
+    );
+
+  const percentToDisplay =
+    settingsData.showScale && sizePercent != null ? sizePercent : proximity;
 
   const [animationState, setAnimationState] =
     useState<AnimationState>("NOT_STARTED");
@@ -106,7 +112,7 @@ export function GuessRow({
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal rounded">
             <CountUp
-              end={proximity}
+              end={percentToDisplay}
               suffix="%"
               duration={(SQUARE_ANIMATION_LENGTH * 5) / 1000}
             />
@@ -128,11 +134,7 @@ export function GuessRow({
             {guess && <Twemoji text={getDirectionEmoji(guess)} />}
           </div>
           <div className="flex items-center justify-center border-2 h-8 col-span-1 animate-reveal animate-pop rounded">
-            {`${
-              settingsData.showScale && sizePercent
-                ? sizePercent.toLocaleString()
-                : proximity
-            }%`}
+            {`${percentToDisplay}%`}
           </div>
         </>
       );
