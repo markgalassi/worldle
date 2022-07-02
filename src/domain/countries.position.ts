@@ -1,6 +1,4 @@
-import { Country } from "./countries";
-
-export const countries: Country[] = [
+export const countries = [
   {
     code: "AD",
     latitude: 42.546245,
@@ -1471,4 +1469,6 @@ export const countries: Country[] = [
     longitude: 29.154857,
     name: "Zimbabwe",
   },
-];
+] as const;
+
+export type CountryCode = typeof countries[number]["code"];
