@@ -249,6 +249,21 @@ export function Game({ settingsData, updateSettings }: GameProps) {
                 </a>
               </div>
             )}
+            {dayString === "2022-07-17" && (
+              <div className="flex flex-wrap gap-4 justify-center">
+                <a
+                  className="underline text-center block mt-4 whitespace-nowrap"
+                  href="https://emovi.teuteuf.fr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Twemoji
+                    text="Let's celebrate #WorldEmojiDay! Play Emovi! 🎥"
+                    options={{ className: "inline-block" }}
+                  />
+                </a>
+              </div>
+            )}
           </>
         ) : (
           <form onSubmit={handleSubmit}>
