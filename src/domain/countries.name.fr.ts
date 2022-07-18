@@ -97,7 +97,7 @@ export const frenchCountryNames: Record<string, string> = {
   GY: "Guyana",
   HT: "Haïti",
   HM: "Heard-et-Îles MacDonald",
-  VA: "Saint-Siège",
+  VA: "Vatican",
   HN: "Honduras",
   HK: "Hong Kong",
   HU: "Hongrie",
