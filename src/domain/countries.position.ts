@@ -867,7 +867,7 @@ export const countries = [
     code: "MO",
     latitude: 22.198745,
     longitude: 113.543873,
-    name: "Macau",
+    name: "Macao",
   },
   {
     code: "MP",
