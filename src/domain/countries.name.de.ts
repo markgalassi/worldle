@@ -191,7 +191,7 @@ export const germanCountryNames: Record<string, string> = {
   RO: "Rumänien",
   RU: "Russland",
   SB: "Salomonen",
-  BL: "Saint-Barthélemy Saint-Barthélemy",
+  BL: "Saint-Barthélemy",
   MF: "Saint-Martin",
   ZM: "Sambia",
   WS: "Samoa",
