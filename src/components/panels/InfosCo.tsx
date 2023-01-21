@@ -12,27 +12,30 @@ interface InfosProps {
   settingsData: SettingsData;
 }
 
-export function Infos({ isOpen, close, settingsData }: InfosProps) {
+export function InfosCo({ isOpen, close, settingsData }: InfosProps) {
   return (
-    <Panel title="How to play" isOpen={isOpen} close={close}>
+    <Panel title="Cumu ghjucà" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the <Worldle /> in 6 guesses.
+          {" "}
+          Induvinate u <Worldle /> in 6 colpi.
         </div>
-        <div>Each guess must be a valid country, territory, ...</div>
         <div>
-          After each guess, you will have the distance, the direction and the
-          proximity from your guess to the target location.
+          Ogni colpu deve esse u nome accettevule d’un paese o d’un territoriu.
+        </div>
+        <div>
+          Dopu à ogni colpu, ottinerete a distanza, a direzzione è a vicinanza
+          trà a vostra prova è u paese à induvinà.
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">Examples</div>
+        <div className="font-bold">Esempii</div>
         <div>
           <Guesses
             rowCount={1}
             guesses={[
               {
-                name: "Chile",
+                name: "Cile",
                 direction: "NE",
                 distance: 13_557_000,
               },
@@ -40,11 +43,11 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Your guess <span className="uppercase font-bold">Chile</span> is{" "}
-            {formatDistance(13557000, settingsData.distanceUnit)} away from the
-            target location, the target location is in the North-East direction
-            and you have a only 32% of proximity because it&apos;s quite far
-            away!
+            U vostru colpu <span className="uppercase font-bold">Cile</span> hè
+            à {formatDistance(13557000, settingsData.distanceUnit)} di u paese à
+            induvinà, quellu paese si trova in direzzione di u nordeste è site
+            solu à 32% di vicinanza perchè u vostru colpu hè quantunque
+            alluntanatu !
           </div>
         </div>
         <div>
@@ -52,7 +55,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Finland",
+                name: "Finlandia",
                 direction: "SE",
                 distance: 3_206_000,
               },
@@ -60,10 +63,11 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Your second guess{" "}
-            <span className="uppercase font-bold">Finland</span> is getting
-            closer! {formatDistance(3206000, settingsData.distanceUnit)} away,
-            South-East direction and 84%!
+            U vostru secondu colpu{" "}
+            <span className="uppercase font-bold">Finlandia</span> hè più vicinu
+            ! A risposta si trova à{" "}
+            {formatDistance(3206000, settingsData.distanceUnit)}, ver di u
+            sudeste cù una vicinanza di 84% !
           </div>
         </div>
         <div>
@@ -71,7 +75,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Lebanon",
+                name: "Libanu",
                 direction: "N",
                 distance: 0,
               },
@@ -79,33 +83,33 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Next guess, <span className="uppercase font-bold">Lebanon</span>,
-            it&apos;s the location to guess! Congrats!{" "}
+            L’ultimu colpu, <span className="uppercase font-bold">Libanu</span>,
+            hè u paese à induvinà ! Bellu colpu !{" "}
             <Twemoji text="🎉" options={{ className: "inline-block" }} />
           </div>
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        A new <Worldle /> will be available every day!
+        Un novu <Worldle /> hè dispunibule ogni ghjornu !
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">Any question or suggestion?</div>
+        <div className="font-bold">Una dumanda o una sugestione ?</div>
         <div>
-          Check the{" "}
+          Visitate a{" "}
           <a
             className="underline"
             href="https://worldle.notion.site/Worldle-b84ab0f002e34866980a4d47cf9291b7"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Worldle FAQ
-          </a>
+            FAQ di Worldle
+          </a>{" "}
           !
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Worldle /> has been <span className="font-bold">heavily</span> inspired
-        by{" "}
+        <Worldle /> hè statu inspiratu{" "}
+        <span className="font-bold">forte forte</span> da{" "}
         <a
           className="underline"
           href="https://www.powerlanguage.co.uk/wordle/"
@@ -114,7 +118,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         >
           Wordle
         </a>{" "}
-        created by{" "}
+        creatu da{" "}
         <a
           className="underline"
           href="https://twitter.com/powerlanguish"
@@ -127,7 +131,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
       </div>
       <div className="space-y-3 text-justify pb-3">
         <div>
-          Made by{" "}
+          Sviluppatu da{" "}
           <a
             className="underline"
             href="https://twitter.com/teuteuf"
@@ -143,12 +147,12 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            source code
+            codice di fonte
           </a>
           )
         </div>
         <div>
-          Want to support?{" "}
+          Vulete sustenemi ?{" "}
           <a
             className="underline"
             href="https://www.ko-fi.com/teuteuf"
@@ -156,7 +160,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rel="noopener noreferrer"
           >
             <Twemoji
-              text="Buy me a coffee! ☕"
+              text="Rigalatemi d’un caffè ! ☕"
               options={{ className: "inline-block" }}
             />
           </a>

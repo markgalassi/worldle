@@ -12,27 +12,28 @@ interface InfosProps {
   settingsData: SettingsData;
 }
 
-export function Infos({ isOpen, close, settingsData }: InfosProps) {
+export function InfosJa({ isOpen, close, settingsData }: InfosProps) {
   return (
-    <Panel title="How to play" isOpen={isOpen} close={close}>
+    <Panel title="遊び方" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the <Worldle /> in 6 guesses.
+          6回以内の回答で
+          <Worldle />
+          に正解しましょう。
         </div>
-        <div>Each guess must be a valid country, territory, ...</div>
+        <div>正確な国名・地域名で回答してください。</div>
         <div>
-          After each guess, you will have the distance, the direction and the
-          proximity from your guess to the target location.
+          一度回答するたびに、正解との距離や距離や方角、近さ（%）を確認することができます。
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">Examples</div>
+        <div className="font-bold">例</div>
         <div>
           <Guesses
             rowCount={1}
             guesses={[
               {
-                name: "Chile",
+                name: "チリ",
                 direction: "NE",
                 distance: 13_557_000,
               },
@@ -40,11 +41,11 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Your guess <span className="uppercase font-bold">Chile</span> is{" "}
-            {formatDistance(13557000, settingsData.distanceUnit)} away from the
-            target location, the target location is in the North-East direction
-            and you have a only 32% of proximity because it&apos;s quite far
-            away!
+            最初の回答である
+            <span className="uppercase font-bold">チリ</span>
+            は、正解から
+            {formatDistance(13557000, settingsData.distanceUnit)}離れています。
+            正解は北東の方角にあり、近さは32%しかありません。
           </div>
         </div>
         <div>
@@ -52,7 +53,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Finland",
+                name: "フィンランド",
                 direction: "SE",
                 distance: 3_206_000,
               },
@@ -60,10 +61,11 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Your second guess{" "}
-            <span className="uppercase font-bold">Finland</span> is getting
-            closer! {formatDistance(3206000, settingsData.distanceUnit)} away,
-            South-East direction and 84%!
+            二番目に回答した
+            <span className="uppercase font-bold">フィンランド</span>
+            は正解に近づいています！正解はこの国から
+            {formatDistance(3206000, settingsData.distanceUnit)}
+            離れていて、南東の方角にあり、近さは84%です。
           </div>
         </div>
         <div>
@@ -71,7 +73,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Lebanon",
+                name: "レバノン",
                 direction: "N",
                 distance: 0,
               },
@@ -79,19 +81,20 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Next guess, <span className="uppercase font-bold">Lebanon</span>,
-            it&apos;s the location to guess! Congrats!{" "}
+            次に、<span className="uppercase font-bold">レバノン</span>
+            と回答します。これは正解でした！おめでとうございます
             <Twemoji text="🎉" options={{ className: "inline-block" }} />
           </div>
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        A new <Worldle /> will be available every day!
+        毎日新しい
+        <Worldle />
+        を楽しむことができます！
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">Any question or suggestion?</div>
+        <div className="font-bold">質問や提案がありますか？</div>
         <div>
-          Check the{" "}
           <a
             className="underline"
             href="https://worldle.notion.site/Worldle-b84ab0f002e34866980a4d47cf9291b7"
@@ -100,12 +103,12 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           >
             Worldle FAQ
           </a>
-          !
+          をご覧ください。
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Worldle /> has been <span className="font-bold">heavily</span> inspired
-        by{" "}
+        <Worldle />
+        は、
         <a
           className="underline"
           href="https://www.powerlanguage.co.uk/wordle/"
@@ -113,8 +116,8 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           rel="noopener noreferrer"
         >
           Wordle
-        </a>{" "}
-        created by{" "}
+        </a>
+        （
         <a
           className="underline"
           href="https://twitter.com/powerlanguish"
@@ -123,11 +126,12 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         >
           Josh Wardle (@powerlanguish)
         </a>
-        .
+        作）から<span className="font-bold">多大な</span>
+        影響を受けて制作しました。
       </div>
       <div className="space-y-3 text-justify pb-3">
         <div>
-          Made by{" "}
+          作者：
           <a
             className="underline"
             href="https://twitter.com/teuteuf"
@@ -148,7 +152,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
           )
         </div>
         <div>
-          Want to support?{" "}
+          もっと応援したい？
           <a
             className="underline"
             href="https://www.ko-fi.com/teuteuf"
@@ -156,7 +160,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rel="noopener noreferrer"
           >
             <Twemoji
-              text="Buy me a coffee! ☕"
+              text="☕ コーヒー1杯分をサポート！"
               options={{ className: "inline-block" }}
             />
           </a>

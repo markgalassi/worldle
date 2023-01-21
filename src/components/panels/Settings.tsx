@@ -99,6 +99,17 @@ export function Settings({
         <div className="flex p-1">
           <input
             type="checkbox"
+            id="setting-showScale"
+            checked={settingsData.showScale}
+            onChange={(e) => updateSettings({ showScale: e.target.checked })}
+          />
+          <label className="flex-1 ml-2" htmlFor="setting-showScale">
+            {t("settings.showScale")}
+          </label>
+        </div>
+        <div className="flex p-1">
+          <input
+            type="checkbox"
             id="setting-noImage"
             checked={settingsData.noImageMode}
             onChange={(e) => updateSettings({ noImageMode: e.target.checked })}

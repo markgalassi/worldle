@@ -12,21 +12,24 @@ interface InfosProps {
   settingsData: SettingsData;
 }
 
-export function Infos({ isOpen, close, settingsData }: InfosProps) {
+export function InfosPl({ isOpen, close, settingsData }: InfosProps) {
   return (
-    <Panel title="How to play" isOpen={isOpen} close={close}>
+    <Panel title="Zasady gry" isOpen={isOpen} close={close}>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
         <div>
-          Guess the <Worldle /> in 6 guesses.
+          Odgadnij <Worldle /> w 6. próbach.
         </div>
-        <div>Each guess must be a valid country, territory, ...</div>
         <div>
-          After each guess, you will have the distance, the direction and the
-          proximity from your guess to the target location.
+          W każdej próbie odgadnięcia musisz podać istniejący kraj, terytorium,
+          ...
+        </div>
+        <div>
+          Po każdej próbie odgadnięcia zobaczysz informację o odległości,
+          kierunku i bliskości pomiędzy odgadniętym krajem, a krajem docelowym.
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">Examples</div>
+        <div className="font-bold">Przykłady</div>
         <div>
           <Guesses
             rowCount={1}
@@ -40,11 +43,11 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Your guess <span className="uppercase font-bold">Chile</span> is{" "}
-            {formatDistance(13557000, settingsData.distanceUnit)} away from the
-            target location, the target location is in the North-East direction
-            and you have a only 32% of proximity because it&apos;s quite far
-            away!
+            Twój typ <span className="uppercase font-bold">Chile</span> jest
+            oddalone o {formatDistance(13557000, settingsData.distanceUnit)} od
+            kraju docelowego, a kraj docelowy znajduje się w kierunku
+            północno-wschodnim i masz tylko 32% bliskości, ponieważ kraj
+            docelowy jest dość daleko!
           </div>
         </div>
         <div>
@@ -52,7 +55,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Finland",
+                name: "Finlandia",
                 direction: "SE",
                 distance: 3_206_000,
               },
@@ -60,10 +63,10 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Your second guess{" "}
-            <span className="uppercase font-bold">Finland</span> is getting
-            closer! {formatDistance(3206000, settingsData.distanceUnit)} away,
-            South-East direction and 84%!
+            Twój drugi typ{" "}
+            <span className="uppercase font-bold">Finlandia</span> jest bliżej!{" "}
+            {formatDistance(3206000, settingsData.distanceUnit)} od kraju
+            docelowego, w kierunku południowo-wschodnim i 84% bliskości!
           </div>
         </div>
         <div>
@@ -71,7 +74,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rowCount={1}
             guesses={[
               {
-                name: "Lebanon",
+                name: "Liban",
                 direction: "N",
                 distance: 0,
               },
@@ -79,19 +82,19 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             settingsData={settingsData}
           />
           <div className="my-2">
-            Next guess, <span className="uppercase font-bold">Lebanon</span>,
-            it&apos;s the location to guess! Congrats!{" "}
+            Kolejny typ, <span className="uppercase font-bold">Liban</span>,
+            jest krajem docelowym! Gratulacje!{" "}
             <Twemoji text="🎉" options={{ className: "inline-block" }} />
           </div>
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3 font-bold">
-        A new <Worldle /> will be available every day!
+        Nowe <Worldle /> będzie pojawiać się każdego dnia!
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <div className="font-bold">Any question or suggestion?</div>
+        <div className="font-bold">Masz pytania lub sugestie?</div>
         <div>
-          Check the{" "}
+          Sprawdź{" "}
           <a
             className="underline"
             href="https://worldle.notion.site/Worldle-b84ab0f002e34866980a4d47cf9291b7"
@@ -104,8 +107,8 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         </div>
       </div>
       <div className="space-y-3 text-justify border-b-2 border-gray-200 pb-3 mb-3">
-        <Worldle /> has been <span className="font-bold">heavily</span> inspired
-        by{" "}
+        <Worldle /> wzoruje się w <span className="font-bold">dużej</span>{" "}
+        mierze na{" "}
         <a
           className="underline"
           href="https://www.powerlanguage.co.uk/wordle/"
@@ -114,20 +117,20 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
         >
           Wordle
         </a>{" "}
-        created by{" "}
+        stworzonym przez{" "}
         <a
           className="underline"
           href="https://twitter.com/powerlanguish"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Josh Wardle (@powerlanguish)
+          Josha Wardle (@powerlanguish)
         </a>
         .
       </div>
       <div className="space-y-3 text-justify pb-3">
         <div>
-          Made by{" "}
+          Autor{" "}
           <a
             className="underline"
             href="https://twitter.com/teuteuf"
@@ -143,12 +146,12 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            source code
+            kod źródłowy
           </a>
           )
         </div>
         <div>
-          Want to support?{" "}
+          Chcesz mnie wesprzeć?{" "}
           <a
             className="underline"
             href="https://www.ko-fi.com/teuteuf"
@@ -156,7 +159,7 @@ export function Infos({ isOpen, close, settingsData }: InfosProps) {
             rel="noopener noreferrer"
           >
             <Twemoji
-              text="Buy me a coffee! ☕"
+              text="Postaw mi kawę! ☕"
               options={{ className: "inline-block" }}
             />
           </a>

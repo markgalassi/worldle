@@ -4,15 +4,19 @@ import { Game } from "./components/Game";
 import React, { useEffect, useMemo, useState } from "react";
 import { Infos } from "./components/panels/Infos";
 import { useTranslation } from "react-i18next";
+import { InfosCo } from "./components/panels/InfosCo";
 import { InfosFr } from "./components/panels/InfosFr";
 import { InfosHu } from "./components/panels/InfosHu";
 import { InfosNl } from "./components/panels/InfosNl";
+import { InfosPl } from "./components/panels/InfosPl";
+import { InfosDe } from "./components/panels/InfosDe";
 import { Settings } from "./components/panels/Settings";
 import { useSettings } from "./hooks/useSettings";
 import { Worldle } from "./components/Worldle";
 import { Stats } from "./components/panels/Stats";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 import { getDayString, useTodays } from "./hooks/useTodays";
+import { InfosJa } from "./components/panels/InfosJa";
 
 const supportLink: Record<string, string> = {
   UA: "https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1",
@@ -40,6 +44,9 @@ export default function App() {
 
   let InfosComponent;
   switch (i18n.resolvedLanguage) {
+    case "co":
+      InfosComponent = InfosCo;
+      break;
     case "fr":
       InfosComponent = InfosFr;
       break;
@@ -48,6 +55,15 @@ export default function App() {
       break;
     case "nl":
       InfosComponent = InfosNl;
+      break;
+    case "pl":
+      InfosComponent = InfosPl;
+      break;
+    case "de":
+      InfosComponent = InfosDe;
+      break;
+    case "ja":
+      InfosComponent = InfosJa;
       break;
     default:
       InfosComponent = Infos;
