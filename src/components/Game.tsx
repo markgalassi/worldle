@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 import { SettingsData } from "../hooks/useSettings";
 import { useMode } from "../hooks/useMode";
 import { getDayString, useTodays } from "../hooks/useTodays";
-import { Twemoji } from "@teuteuf/react-emoji-render";
+import { Twemoji } from "@tommoor/react-emoji-render";
 import { countries } from "../domain/countries.position";
 import { useNewsNotifications } from "../hooks/useNewsNotifications";
 
