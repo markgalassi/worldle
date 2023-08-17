@@ -1,11 +1,47 @@
 # Batt**l**dle
 
-Play this geographical wordle here: https://worldle.teuteuf.fr !
+Forked from: https://worldle.teuteuf.fr !
 
-## Resources used:
+## Original Worldle Resources used:
 
 - Countries with long/lat => https://developers.google.com/public-data/docs/canonical/countries_csv
 - Country images => https://github.com/djaiss/mapsicon
 - French country names => https://fr.wikipedia.org/wiki/ISO_3166
 
-https://en.wikipedia.org/wiki/List_of_battles_by_geographic_location
+## Battldle Resources used:
+
+- https://en.wikipedia.org/wiki/List_of_battles_by_geographic_location
+- https://andorrainsiders.com/en/timeline-dates-history-andorra/
+- https://en.wikipedia.org/wiki/Battle_of_the_Caribbean#/media/File:CaribbeanIslands.png
+- https://en.wikipedia.org/wiki/Battle_of_Dimawe
+- https://en.wikipedia.org/wiki/First_Battle_of_Polotsk
+
+**# TODO, RENAME BATTLES FOR COUNTRIES:**
+
+- [ ] A
+- [ ] B
+- [ ] C
+- [ ] D
+- [ ] E
+- [ ] F
+- [ ] G
+- [ ] H
+- [ ] I
+- [ ] J
+- [ ] K
+- [ ] L
+- [ ] M
+- [ ] N
+- [ ] O
+- [ ] P
+- [ ] Q
+- [ ] R
+- [ ] S
+- [ ] T
+- [ ] U
+- [ ] V
+- [ ] W
+- [ ] X
+- [ ] Y
+- [ ] Z
+- [ ] MISC (e.g. Antarctica etc)
