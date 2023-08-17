@@ -432,7 +432,7 @@ export const countries: Country[] = [
     code: "FK",
     latitude: -51.796253,
     longitude: -59.523613,
-    name: "Falkland Islands (Malvinas)",
+    name: "Goose Green, 1982",
   },
   { code: "FM", latitude: 7.425554, longitude: 150.550812, name: "Micronesia" },
   {
@@ -441,7 +441,7 @@ export const countries: Country[] = [
     longitude: -6.911806,
     name: "Faroe Islands",
   },
-  { code: "FR", latitude: 46.227638, longitude: 2.213749, name: "France" },
+  { code: "FR", latitude: 46.227638, longitude: 2.213749, name: "Verdun, 1916" },
   { code: "GA", latitude: -0.803689, longitude: 11.609444, name: "Gabon" },
   {
     code: "GB",
