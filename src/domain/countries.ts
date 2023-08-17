@@ -270,7 +270,7 @@ export const countries: Country[] = [
     name: "Caribbean 1941-45",
   },
   { code: "AI", latitude: 18.220554, longitude: -63.068615, name: "Caribbean, 1941-45" },
-  { code: "AL", latitude: 41.153332, longitude: 20.168331, name: "Siege of Pelium 335, BC" },
+  { code: "AL", latitude: 41.153332, longitude: 20.168331, name: "Siege of Pelium, 335 BC" },
   { code: "AM", latitude: 40.069099, longitude: 45.038189, name: "Alexandropol, 1920" },
   {
     code: "AN",
@@ -295,7 +295,7 @@ export const countries: Country[] = [
     code: "AS",
     latitude: -14.270972,
     longitude: -170.132217,
-    name: "Samoan crisis, 1887-9",
+    name: "Samoan Crisis, 1887-9",
   },
   { code: "AT", latitude: 47.516231, longitude: 14.550072, name: "Hard, 1499" },
   {
