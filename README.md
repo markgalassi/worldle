@@ -23,8 +23,8 @@ Forked from: https://worldle.teuteuf.fr !
 - [ x ] A
 - [ x ] B
 - [ x ] C
-- [ ] D
-- [ ] E
+- [ x ] D
+- [ x ] E
 - [ ] F
 - [ ] G
 - [ ] H
