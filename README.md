@@ -20,11 +20,11 @@ Forked from: https://worldle.teuteuf.fr !
 
 **# TODO, RENAME BATTLES FOR COUNTRIES:**
 
-- [ x ] A
-- [ x ] B
-- [ x ] C
-- [ x ] D
-- [ x ] E
+- [x] A
+- [x] B
+- [x] C
+- [x] D
+- [x] E
 - [ ] F
 - [ ] G
 - [ ] H
