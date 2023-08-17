@@ -314,7 +314,7 @@ export const countries: Country[] = [
   },
   { code: "BB", latitude: 13.193887, longitude: -59.543198, name: "Caribbean, 1941-45" },
   { code: "BD", latitude: 23.684994, longitude: 90.356331, name: "Ramu, 1824" },
-  { code: "BE", latitude: 50.503887, longitude: 4.469936, name: "Passchendaele, 1917" },
+  { code: "BE", latitude: 50.503887, longitude: 4.469936, name: "Waterloo, 1815" },
   {
     code: "BF",
     latitude: 12.238333,
