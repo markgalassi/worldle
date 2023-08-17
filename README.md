@@ -22,7 +22,7 @@ Forked from: https://worldle.teuteuf.fr !
 
 - [ x ] A
 - [ x ] B
-- [ ] C
+- [ x ] C
 - [ ] D
 - [ ] E
 - [ ] F
@@ -46,4 +46,4 @@ Forked from: https://worldle.teuteuf.fr !
 - [ ] X
 - [ ] Y
 - [ ] Z
-- [ ] MISC (e.g. Antarctica etc)
+- [ ] Remove countries with no notable battles (check notion)
