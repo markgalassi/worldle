@@ -15,6 +15,8 @@ Forked from: https://worldle.teuteuf.fr !
 - https://en.wikipedia.org/wiki/Battle_of_the_Caribbean#/media/File:CaribbeanIslands.png
 - https://en.wikipedia.org/wiki/Battle_of_Dimawe
 - https://en.wikipedia.org/wiki/First_Battle_of_Polotsk
+- https://en.wikipedia.org/wiki/Battle_of_St._George%27s_Caye
+- https://legionmagazine.com/en/five-battles-that-shaped-canada/
 
 **# TODO, RENAME BATTLES FOR COUNTRIES:**
 
