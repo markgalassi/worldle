@@ -18,8 +18,8 @@ Forked from: https://worldle.teuteuf.fr !
 
 **# TODO, RENAME BATTLES FOR COUNTRIES:**
 
-- [ ] A
-- [ ] B
+- [ x ] A
+- [ x ] B
 - [ ] C
 - [ ] D
 - [ ] E
