@@ -314,7 +314,7 @@ export const countries: Country[] = [
   },
   { code: "BB", latitude: 13.193887, longitude: -59.543198, name: "Caribbean 1941-45" },
   { code: "BD", latitude: 23.684994, longitude: 90.356331, name: "Ramu 1824" },
-  { code: "BE", latitude: 50.503887, longitude: 4.469936, name: "passchendaele 1917" },
+  { code: "BE", latitude: 50.503887, longitude: 4.469936, name: "Passchendaele 1917" },
   {
     code: "BF",
     latitude: 12.238333,
@@ -337,9 +337,9 @@ export const countries: Country[] = [
     longitude: 3.413194,
     name: "Bouvet Island",
   },
-  { code: "BW", latitude: -22.328474, longitude: 24.684866, name: "Dimawe" },
-  { code: "BY", latitude: 53.709807, longitude: 27.953389, name: "Belarus" },
-  { code: "BZ", latitude: 17.189877, longitude: -88.49765, name: "Belize" },
+  { code: "BW", latitude: -22.328474, longitude: 24.684866, name: "Dimawe 1852" },
+  { code: "BY", latitude: 53.709807, longitude: 27.953389, name: "Polotsk 1812" },
+  { code: "BZ", latitude: 17.189877, longitude: -88.49765, name: "St. George's Caye 1798" },
   { code: "CA", latitude: 56.130366, longitude: -106.346771, name: "Canada" },
   {
     code: "CC",
